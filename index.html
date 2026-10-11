@@ -3,111 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>(KomilUsmonDev)</title>
-  <!-- Tailwind CSS CDN -->
+  <title>Maxsus Sevgi Syurprizi</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts for romantic typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Inter:wght@300;400;600&family=Marcellus&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    * {
-      box-sizing: border-box;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #000000;
-      color: #ffe4e6;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      touch-action: none;
-    }
-
-    .font-romantic {
-      font-family: 'Dancing Script', cursive;
-    }
-
-    .font-vibes {
-      font-family: 'Great Vibes', cursive;
-    }
-
-    .font-cinzel {
-      font-family: 'Cinzel', serif;
-    }
-
-    /* Ambient pulse for start button */
+    * { box-sizing: border-box; user-select: none; -webkit-tap-highlight-color: transparent; }
+    body { font-family: 'Inter', sans-serif; background-color: #000; color: #ffe4e6; margin: 0; padding: 0; overflow: hidden; }
+    .font-romantic { font-family: 'Dancing Script', cursive; }
+    .font-vibes { font-family: 'Great Vibes', cursive; }
+    .glass-box { background: rgba(15, 5, 15, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(244, 114, 182, 0.3); }
     @keyframes deepPulse {
-      0%, 100% {
-        box-shadow: 0 0 25px rgba(244, 63, 94, 0.4), 0 0 60px rgba(225, 29, 72, 0.2);
-        transform: scale(1);
-      }
-      50% {
-        box-shadow: 0 0 50px rgba(244, 63, 94, 0.8), 0 0 100px rgba(225, 29, 72, 0.5);
-        transform: scale(1.05);
-      }
+      0%, 100% { box-shadow: 0 0 25px rgba(244, 63, 94, 0.4); transform: scale(1); }
+      50% { box-shadow: 0 0 50px rgba(244, 63, 94, 0.8); transform: scale(1.05); }
     }
-
-    .pulse-glow-btn {
-      animation: deepPulse 2.4s ease-in-out infinite;
-    }
-
-    /* Starry twinkle */
-    @keyframes starFade {
-      0%, 100% { opacity: 0.15; transform: scale(0.8); }
-      50% { opacity: 0.9; transform: scale(1.2); }
-    }
-
-    /* Glass frosted effect */
-    .glass-box {
-      background: rgba(15, 5, 15, 0.65);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(244, 114, 182, 0.25);
-    }
+    .pulse-glow-btn { animation: deepPulse 2.4s ease-in-out infinite; }
   </style>
 </head>
 <body class="w-screen h-screen relative bg-black overflow-hidden">
 
-  <!-- Main High Performance Canvas -->
+  <!-- Interaktiv Canvas -->
   <canvas id="heartCanvas" class="absolute inset-0 w-full h-full block z-0"></canvas>
 
-  <!-- Initial Pitch-Black Overlay with Surprise Trigger Button -->
-  <div id="introOverlay" class="absolute inset-0 bg-black z-50 flex flex-col items-center justify-center transition-opacity duration-1000 px-4 text-center">
-    <div class="relative max-w-md mx-auto flex flex-col items-center">
-      <div class="w-20 h-20 mb-6 rounded-full flex items-center justify-center bg-rose-950/40 border border-rose-500/30 text-rose-500 text-3xl shadow-[0_0_40px_rgba(244,63,94,0.3)]">
-        <i class="fa-solid fa-heart animate-pulse"></i>
+  <!-- 1. PAROL KIRITISH OVERLAY (Dastlabki Qora Ekran) -->
+  <div id="passwordOverlay" class="absolute inset-0 bg-black z-50 flex flex-col items-center justify-center p-4 text-center">
+    <div class="glass-box p-8 rounded-3xl max-w-sm w-full border border-rose-500/30 shadow-[0_0_50px_rgba(244,63,94,0.3)]">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-rose-950/50 border border-rose-500/40 text-rose-400 text-2xl shadow-lg">
+        <i class="fa-solid fa-lock animate-pulse"></i>
       </div>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-vibes text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-rose-300 to-red-400 mb-3 tracking-wide">
-        Siz Uchun Maxsus Syurpriz
-      </h1>
-      <p class="text-rose-200/70 text-sm sm:text-base font-romantic tracking-wider mb-8 max-w-xs sm:max-w-sm">
-        
+      <h2 class="text-2xl font-vibes text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-rose-400 mb-2">
+        Sizga Maxsus Xabar Bor
+      </h2>
+      <p class="text-xs text-rose-200/70 mb-6">
+        Davom etish uchun sizga berilgan maxsus parolni kiriting:
       </p>
 
-      <button id="startSurpriseBtn" class="pulse-glow-btn px-8 py-3.5 rounded-full bg-gradient-to-r from-rose-600 via-pink-600 to-red-600 text-white font-medium text-base sm:text-lg tracking-wider flex items-center gap-3 transition-transform active:scale-95 border border-pink-400/50 cursor-pointer">
-        <i class="fa-solid fa-sparkles text-pink-200 text-sm"></i>
-        <span>Syurprizni Oching</span>
-        <i class="fa-solid fa-heart text-pink-200 text-sm"></i>
+      <input type="password" id="passInput" placeholder="Parolni kiriting..." class="w-full px-4 py-3 rounded-xl bg-pink-950/40 border border-pink-500/40 text-rose-100 placeholder-pink-300/30 text-center tracking-widest focus:outline-none focus:ring-2 focus:ring-rose-400 text-base mb-3">
+      
+      <p id="errorMsg" class="text-xs text-red-400 hidden mb-3 font-semibold">Parol noto'g'ri! Qayta urinib ko'ring.</p>
+
+      <button id="submitPassBtn" class="w-full py-3 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 text-white font-medium tracking-wider shadow-lg hover:brightness-110 active:scale-95 transition-all">
+        Syurprizni Oching <i class="fa-solid fa-heart ml-1"></i>
       </button>
-      <span class="mt-5 text-xs text-rose-300/40 tracking-widest font-mono">
-        
-      </span>
+
+      <!-- Admin Panel Tugmasi -->
+      <button id="openAdminBtn" class="mt-6 text-xs text-rose-300/40 hover:text-rose-300 flex items-center justify-center gap-1 mx-auto transition-colors">
+        <i class="fa-solid fa-gear"></i> Yangi Arizalar (Admin)
+      </button>
     </div>
   </div>
 
-  <!-- Top Progress & Status HUD -->
+  <!-- 2. ADMIN PANEL MODAL (Parol Yaratish Uchn) -->
+  <div id="adminModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="glass-box w-full max-w-md p-6 rounded-3xl border border-pink-400/40">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-xl font-romantic font-bold text-pink-300">
+          <i class="fa-solid fa-user-plus text-rose-400 mr-2"></i>Yangi Syurpriz Yaratish
+        </h3>
+        <button id="closeAdminModal" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+
+      <!-- Admin Parol Tekshiruvi -->
+      <div id="adminAuthBox">
+        <p class="text-xs text-rose-200/70 mb-3">Admin panelga kirish uchun maxsus kalitni kiriting (Standart: <code class="text-pink-300">admin123</code>):</p>
+        <input type="password" id="adminPassInput" placeholder="Admin kaliti..." class="w-full px-4 py-2 rounded-xl bg-pink-950/40 border border-pink-500/40 text-rose-100 text-sm mb-3">
+        <button id="verifyAdminBtn" class="w-full py-2.5 rounded-xl bg-rose-600 text-white text-sm font-semibold">Kirish</button>
+      </div>
+
+      <!-- Admin Forma -->
+      <div id="adminFormBox" class="hidden space-y-3">
+        <div>
+          <label class="block text-xs text-rose-200/80 mb-1">Qizning ismi (masalan: Bonu):</label>
+          <input type="text" id="newGirlName" placeholder="Bonu" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100">
+        </div>
+        <div>
+          <label class="block text-xs text-rose-200/80 mb-1">Maxsus Izhor (masalan: Bonu, men seni sevaman!):</label>
+          <input type="text" id="newMessage" placeholder="Bonu, men seni sevaman!" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100">
+        </div>
+        <div>
+          <label class="block text-xs text-rose-200/80 mb-1">Sizning ismingiz (masalan: Sizni sevguvchi Komil):</label>
+          <input type="text" id="newSenderName" placeholder="Sizni sevguvchi Komil" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100">
+        </div>
+        
+        <button id="createSurpriseBtn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 text-white font-semibold text-sm">
+          Parol Yaratish va Saqlash
+        </button>
+
+        <!-- Yaratilgan Parol Natijasi -->
+        <div id="resultBox" class="hidden mt-3 p-3 rounded-xl bg-pink-950/60 border border-pink-400/40 text-xs">
+          <p class="text-pink-200 font-bold mb-1">Muvaffaqiyatli saqlandi! 🎉</p>
+          <p>Yuboriladigan Parol: <span id="generatedPass" class="text-rose-300 font-mono text-sm font-bold bg-black/50 px-2 py-0.5 rounded"></span></p>
+          <p class="text-[10px] text-gray-400 mt-1">Ushbu parolni qizga yuboring, u kiritganida ushbu izhor namoyish etiladi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HUD Progress Header -->
   <header id="topHUD" class="absolute top-4 left-1/2 -translate-x-1/2 z-20 w-11/12 max-w-xl text-center pointer-events-none opacity-0 transition-opacity duration-700">
     <div class="glass-box rounded-full px-5 py-2.5 flex items-center justify-between shadow-2xl">
       <div class="flex items-center gap-2">
         <span class="text-rose-400 text-sm animate-pulse"><i class="fa-solid fa-heart-pulse"></i></span>
-        <span id="currentLangBadge" class="text-xs sm:text-sm font-romantic font-bold text-pink-200 tracking-wider">
+        <span id="currentLangBadge" class="text-xs sm:text-sm font-romantic font-bold text-pink-200">
           Tayyorlanmoqda...
         </span>
       </div>
@@ -120,157 +120,69 @@
     </div>
   </header>
 
-  <!-- Bottom Floating Interactive Controls -->
-  <footer id="bottomControls" class="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-2 rounded-full glass-box opacity-0 transition-opacity duration-700 pointer-events-auto">
-    <!-- Sound Mute/Unmute -->
-    <button id="soundToggleBtn" title="Ovozni boshqarish" class="p-2.5 sm:px-4 sm:py-2 rounded-full bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 border border-rose-500/30 text-xs sm:text-sm flex items-center gap-2 transition-all">
+  <!-- Control Controls -->
+  <footer id="bottomControls" class="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-2 rounded-full glass-box opacity-0 transition-opacity duration-700">
+    <button id="soundToggleBtn" class="px-4 py-2 rounded-full bg-rose-950/40 text-rose-200 border border-rose-500/30 text-xs flex items-center gap-2">
       <i class="fa-solid fa-volume-high text-pink-400" id="soundIcon"></i>
-      <span class="hidden sm:inline">Tovush</span>
+      <span>Ovoz</span>
     </button>
-
-    <!-- Speed Mode Toggle -->
-    <button id="speedToggleBtn" title="Tezlikni oshirish" class="p-2.5 sm:px-4 sm:py-2 rounded-full bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 border border-rose-500/30 text-xs sm:text-sm flex items-center gap-2 transition-all">
-      <i class="fa-solid fa-forward-fast text-rose-300"></i>
-      <span id="speedLabel" class="hidden sm:inline">Tezlik: Normal</span>
-    </button>
-
-    <!-- Name Customizer -->
-    <button id="customNameBtn" title="Ism kiritish" class="p-2.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 text-white text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-pink-950/60 hover:brightness-110 active:scale-95 transition-all">
-      <i class="fa-solid fa-signature"></i>
-      <span class="hidden sm:inline">Ism Qo'shish</span>
-    </button>
-
-    <!-- Replay Surprise -->
-    <button id="replayBtn" title="Qaytadan boshlash" class="p-2.5 sm:px-4 sm:py-2 rounded-full bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 border border-rose-500/30 text-xs sm:text-sm flex items-center gap-2 transition-all">
+    <button id="replayBtn" class="px-4 py-2 rounded-full bg-rose-950/40 text-rose-200 border border-rose-500/30 text-xs flex items-center gap-2">
       <i class="fa-solid fa-rotate-left"></i>
-      <span class="hidden sm:inline">Qayta ijro</span>
+      <span>Qayta</span>
     </button>
   </footer>
 
-  <!-- Custom Name Input Modal -->
-  <div id="nameModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="glass-box w-full max-w-sm sm:max-w-md p-6 rounded-3xl border border-pink-400/40 shadow-[0_0_60px_rgba(244,63,94,0.35)]">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl font-romantic font-bold text-pink-300 flex items-center gap-2">
-          <i class="fa-solid fa-heart text-rose-400"></i> Ism qo'shish
-        </h3>
-        <button id="closeNameModal" class="text-gray-400 hover:text-white p-1 text-lg">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      <p class="text-xs sm:text-sm text-pink-200/70 mb-4 leading-relaxed">
-        Yurak markazida va sevgi so'zlari orasida porlab turishi uchun sevgan insoningiz ismini kiriting:
-      </p>
-      <input type="text" id="partnerNameInput" maxlength="24" placeholder="Masalan: Madina, Shahzodam..." class="w-full px-4 py-2.5 rounded-xl bg-pink-950/40 border border-pink-500/40 text-rose-100 placeholder-pink-300/40 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm mb-4">
-      <div class="flex gap-2">
-        <button id="savePartnerName" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 text-white font-semibold text-sm hover:brightness-110 active:scale-95 transition-all shadow-md">
-          Saqlash & Namoyish
-        </button>
-        <button id="clearPartnerName" class="px-4 py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm transition-all">
-          Tozalash
-        </button>
-      </div>
-    </div>
-  </div>
-
   <script>
-    /**
-     * Dunyoning 80 dan ortiq tildagi TAKRORLANMAS "Men seni sevaman" va romantik iboralar lug'ati.
-     * Hech biri takrorlanmaydi.
-     */
+    // Standart Bazadagi Parollar (LocalStorageda ham saqlanadi)
+    const DEFAULT_DATA = {
+      "bonu123": {
+        name: "Bonu",
+        message: "Bonu, men seni sevaman!",
+        sender: "Sizni sevguvchi Komil"
+      },
+      "sevgilim": {
+        name: "Sevgilim",
+        message: "Siz mening hayotim mazmunisiz!",
+        sender: "Sizni sevadigan insondan"
+      }
+    };
+
+    function getDatabase() {
+      const stored = localStorage.getItem('love_surprises_db');
+      return stored ? JSON.parse(stored) : DEFAULT_DATA;
+    }
+
+    function saveToDatabase(db) {
+      localStorage.setItem('love_surprises_db', JSON.stringify(db));
+    }
+
     const UNIQUE_LOVE_TRANSLATIONS = [
       { text: "Men seni sevaman", lang: "O'zbekcha" },
-      { text: "I love you", lang: "Inglizcha (English)" },
-      { text: "Я тебя люблю", lang: "Ruscha (Русский)" },
-      { text: "Seni seviyorum", lang: "Turkcha (Türkçe)" },
-      { text: "Je t'aime", lang: "Fransuzcha (Français)" },
-      { text: "Te amo", lang: "Ispancha (Español)" },
-      { text: "Ti amo", lang: "Italyancha (Italiano)" },
-      { text: "Ich liebe dich", lang: "Nemischa (Deutsch)" },
-      { text: "愛してる", lang: "Yaponcha (日本語)" },
-      { text: "사랑해", lang: "Koreyscha (한국어)" },
-      { text: "我爱你", lang: "Xitoycha (中文)" },
-      { text: "أحبك", lang: "Arabcha (العربية)" },
-      { text: "دوستت دارم", lang: "Forscha (فارسی)" },
-      { text: "मैं तुमसे प्यार करता हूँ", lang: "Hindcha (हिन्दी)" },
-      { text: "Eu te amo", lang: "Portugalcha (Português)" },
-      { text: "Σ' αγαπώ", lang: "Yunoncha (Ελληνικά)" },
-      { text: "Ik hou van jou", lang: "Gollandcha (Nederlands)" },
-      { text: "Kocham cię", lang: "Polyakcha (Polski)" },
-      { text: "Jag älskar dig", lang: "Shvedcha (Svenska)" },
-      { text: "Jeg elsker deg", lang: "Norvegcha (Norsk)" },
-      { text: "Jeg elsker dig", lang: "Dancha (Dansk)" },
-      { text: "Minä rakastan sinua", lang: "Fincha (Suomi)" },
-      { text: "Я тебе кохаю", lang: "Ukraincha (Українська)" },
-      { text: "Mən səni sevirəm", lang: "Ozarbayjoncha (Azərbaycan)" },
-      { text: "Мен сені сүйемін", lang: "Qozoqcha (Қазақ)" },
-      { text: "Мен сени сүйөм", lang: "Qirg'izcha (Кыргыз)" },
-      { text: "Ман туро дӯст медорам", lang: "Tojikcha (Тоҷикӣ)" },
-      { text: "Мин сине яратам", lang: "Tatarcha (Татар)" },
-      { text: "Szeretlek", lang: "Vengercha (Magyar)" },
-      { text: "Miluji tě", lang: "Chexcha (Čeština)" },
-      { text: "Te iubesc", lang: "Rumincha (Română)" },
-      { text: "Обичам те", lang: "Bolgarcha (Български)" },
-      { text: "Волим те", lang: "Serbcha (Српски)" },
-      { text: "Volim te", lang: "Xorvatcha (Hrvatski)" },
-      { text: "Ljubim te", lang: "Slovensa (Slovenščina)" },
-      { text: "Ľúbim ťa", lang: "Slovakcha (Slovenčina)" },
-      { text: "Aku cinta kamu", lang: "Indonezcha (Bahasa Indonesia)" },
-      { text: "Saya cintakan awak", lang: "Malaycha (Bahasa Melayu)" },
-      { text: "Anh yêu em", lang: "Vyetnamcha (Tiếng Việt)" },
-      { text: "ฉันรักเธอ", lang: "Taycha (ไทย)" },
-      { text: "Mahal kita", lang: "Tagalog/Filipincha" },
-      { text: "მიყვარხარ", lang: "Gruzincha (ქართული)" },
-      { text: "Ես քեզ սիրում եմ", lang: "Armancha (Հայերեն)" },
-      { text: "אני אוהב אותך", lang: "Ibroniycha (עברית)" },
-      { text: "Te amo ex toto corde", lang: "Lotincha (Latina)" },
-      { text: "Táim i ngrá leat", lang: "Irlandcha (Gaeilge)" },
-      { text: "Ég elska þig", lang: "Islandcha (Íslenska)" },
-      { text: "Nakupenda", lang: "Suaxili (Kiswahili)" },
-      { text: "Би чамд хайртай", lang: "Mo'g'ulcha (Монгол)" },
-      { text: "T'estimo", lang: "Katalancha (Català)" },
-      { text: "Maite zaitut", lang: "Baskcha (Euskara)" },
-      { text: "Rwy'n dy garu di", lang: "Uelscha (Cymraeg)" },
-      { text: "Tha gaol agam ort", lang: "Shotlandcha (Gàidhlig)" },
-      { text: "Aš tave myliu", lang: "Litovcha (Lietuvių)" },
-      { text: "Es tevi mīlu", lang: "Latishcha (Latviešu)" },
-      { text: "Ma armastan sind", lang: "Estoncha (Eesti)" },
-      { text: "Meniň söýgim sensiň", lang: "Turkmancha (Türkmençe)" },
-      { text: "خۆشتم دەوێ", lang: "Kurdcha (Kurdî)" },
-      { text: "Ek het jou lief", lang: "Afrikaans" },
-      { text: "Ina son ku", lang: "Xausa (Hausa)" },
-      { text: "Mo nifẹ rẹ", lang: "Yoruba" },
-      { text: "Aheri", lang: "Luo" },
-      { text: "Nalingi yo", lang: "Lingala" },
-      { text: "Ke a go rata", lang: "Setswana" },
-      { text: "Ndimakukonda", lang: "Chichewa" },
-      { text: "Kuv hlub koj", lang: "Xmongcha (Hmoob)" },
-      { text: "Aloha au iā 'oe", lang: "Gavayi (Hawaiian)" },
-      { text: "Ou te alofa ia te oe", lang: "Samoacha (Samoan)" },
-      { text: "Aroha ahau ki a koe", lang: "Maoricha (Māori)" },
-      { text: "Ofa 'ofa atu", lang: "Tongacha (Tonga)" },
-      { text: "Palangga ko ikaw", lang: "Sebuano (Cebuano)" },
-      { text: "Inikaw a saken", lang: "Ilocano" },
-      { text: "Ngiyakuthanda", lang: "Zulucha (isiZulu)" },
-      { text: "Ndiyakuthanda", lang: "Xosacha (isiXhosa)" },
-      { text: "Mimi ninakupenda sana", lang: "Sharqiy Afrika" },
-      { text: "Huenda unatawala moyo wangu", lang: "Bantu" },
-      { text: "Saya sayang awak", lang: "Malayziya" },
-      { text: "Nalulugod ako sa iyo", lang: "Kapampangan" },
-      { text: "Qani sevirəm", lang: "Turk lahjasi" },
-      { text: "Yuragimning sultoni", lang: "O'zbekona Romantika" },
-      { text: "Sen mening borlig'imsan", lang: "Dil Izhori" },
-      { text: "Hayotim mazmunisan", lang: "Yurak Sadolari" },
-      { text: "Abadiy sevgilim", lang: "Muhabbat" },
-      { text: "Mening yagona sevgim", lang: "Iqror" }
+      { text: "I love you", lang: "Inglizcha" },
+      { text: "Я тебя люблю", lang: "Ruscha" },
+      { text: "Seni seviyorum", lang: "Turkcha" },
+      { text: "Je t'aime", lang: "Fransuzcha" },
+      { text: "Te amo", lang: "Ispancha" },
+      { text: "Ti amo", lang: "Italyancha" },
+      { text: "Ich liebe dich", lang: "Nemischa" },
+      { text: "愛してる", lang: "Yaponcha" },
+      { text: "사랑해", lang: "Koreyscha" },
+      { text: "我爱你", lang: "Xitoycha" },
+      { text: "أحبك", lang: "Arabcha" },
+      { text: "دوستت دارم", lang: "Forscha" },
+      { text: "Eu te amo", lang: "Portugalcha" },
+      { text: "Σ' αγαπώ", lang: "Yunoncha" },
+      { text: "Kocham cię", lang: "Polyakcha" },
+      { text: "Mən səni sevirəm", lang: "Ozarbayjoncha" },
+      { text: "Мен сені сүйемін", lang: "Qozoqcha" },
+      { text: "Szeretlek", lang: "Vengercha" },
+      { text: "Te iubesc", lang: "Rumincha" }
     ];
 
     const canvas = document.getElementById('heartCanvas');
     const ctx = canvas.getContext('2d');
-    let width = 0;
-    let height = 0;
-    let heartScale = 1;
-    let partnerName = "";
+    let width = 0, height = 0, heartScale = 1;
+    let currentActiveSurprise = null;
 
     function resizeCanvas() {
       width = window.innerWidth;
@@ -278,580 +190,209 @@
       canvas.width = width * window.devicePixelRatio;
       canvas.height = height * window.devicePixelRatio;
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-
-      // Cardioid heart proportion based on viewport
       const minDim = Math.min(width, height);
-      if (minDim < 450) {
-        heartScale = minDim / 44; // Mobile
-      } else if (minDim < 768) {
-        heartScale = minDim / 40; // Tablet
-      } else {
-        heartScale = minDim / 38; // Desktop
-      }
+      heartScale = minDim < 450 ? minDim / 42 : minDim / 38;
     }
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    /**
-     * Cardioid formula:
-     * x(t) = 16 * sin^3(t)
-     * y(t) = -(13 * cos(t) - 5 * cos(2t) - 2 * cos(3t) - cos(4t))
-     */
     function getCardioidPoint(t, scale) {
       const x = 16 * Math.pow(Math.sin(t), 3);
       const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
-      return {
-        x: x * scale,
-        y: y * scale
-      };
+      return { x: x * scale, y: y * scale };
     }
 
-    /**
-     * Pre-calculate well-spaced positions throughout the heart shape
-     * So words evenly fill both contour and deep inside without cluttering.
-     */
     function generateHeartSlots(count, scale) {
       const slots = [];
-      // 1. Boundary & Semi-boundary slots (~45%)
       const perimeterCount = Math.floor(count * 0.45);
       for (let i = 0; i < perimeterCount; i++) {
         const t = (i / perimeterCount) * Math.PI * 2;
         const pt = getCardioidPoint(t, scale);
-        // Contract slightly inwards for boundary words
-        const factor = 0.88 + Math.random() * 0.12;
-        slots.push({
-          x: pt.x * factor,
-          y: pt.y * factor,
-          isPerimeter: true,
-          angle: t
-        });
+        slots.push({ x: pt.x * 0.9, y: pt.y * 0.9 });
       }
-
-      // 2. Interior filled slots (~55%) with rejection spacing
-      const interiorCount = count - perimeterCount;
-      let attempts = 0;
-      while (slots.length < count && attempts < 1500) {
-        attempts++;
+      while (slots.length < count) {
         const t = Math.random() * Math.PI * 2;
-        const r = Math.sqrt(Math.random()) * 0.78; // Square root creates uniform density
+        const r = Math.sqrt(Math.random()) * 0.78;
         const edge = getCardioidPoint(t, scale);
-        const candX = edge.x * r;
-        const candY = edge.y * r;
-
-        // Ensure minimum clearance between existing slots
-        let minDist = 999;
-        for (let s of slots) {
-          const d = Math.hypot(s.x - candX, s.y - candY);
-          if (d < minDist) minDist = d;
-        }
-
-        // Adaptive spacing threshold
-        if (minDist > scale * 1.5 || attempts > 1000) {
-          slots.push({
-            x: candX,
-            y: candY,
-            isPerimeter: false,
-            angle: t
-          });
-        }
+        slots.push({ x: edge.x * r, y: edge.y * r });
       }
-
-      // Shuffle slots so discovery order jumps all across the heart
-      for (let i = slots.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [slots[i], slots[j]] = [slots[j], slots[i]];
-      }
-
       return slots;
     }
 
-    let audioCtx = null;
-    let isSoundMuted = false;
-
+    let audioCtx = null, isSoundMuted = false;
     function initAudio() {
-      if (!audioCtx) {
-        const AudioClass = window.AudioContext || window.webkitAudioContext;
-        if (AudioClass) {
-          audioCtx = new AudioClass();
-        }
-      }
-      if (audioCtx && audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
     }
 
-    // Gentle musical bell chime on each word reveal
-    function playWordChime(index, total) {
+    function playWordChime(index) {
       if (isSoundMuted || !audioCtx) return;
       try {
-        const now = audioCtx.currentTime;
-        // Pentatonic harmonic notes progression
-        const scaleFreqs = [
-          261.63, 293.66, 329.63, 392.00, 440.00, // Octave 4
-          523.25, 587.33, 659.25, 783.99, 880.00, // Octave 5
-          1046.50                                  // Octave 6
-        ];
-        const noteIndex = (index * 2) % scaleFreqs.length;
-        const freq = scaleFreqs[noteIndex];
-
+        const freqs = [261.63, 329.63, 392.00, 523.25, 659.25];
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
-
-        osc.type = index % 3 === 0 ? 'sine' : 'triangle';
-        osc.frequency.setValueAtTime(freq, now);
-
-        gain.gain.setValueAtTime(0.08, now);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.85);
-
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-
-        osc.start(now);
-        osc.stop(now + 0.85);
-      } catch (err) {
-        // Fallback silently if audio context is blocked
-      }
-    }
-
-    // Organ-like double heartbeat thump: "Lub - Dub"
-    function playThumpSound() {
-      if (isSoundMuted || !audioCtx) return;
-      try {
-        const now = audioCtx.currentTime;
-        // First Beat
-        playSingleThump(now, 65, 0.28, 0.4);
-        // Second Beat
-        playSingleThump(now + 0.20, 80, 0.22, 0.32);
+        osc.frequency.setValueAtTime(freqs[index % freqs.length], audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.5);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(); osc.stop(audioCtx.currentTime + 0.5);
       } catch (e) {}
     }
 
-    function playSingleThump(time, freq, duration, maxGain) {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, time);
-      osc.frequency.exponentialRampToValueAtTime(30, time + duration);
-
-      gain.gain.setValueAtTime(maxGain, time);
-      gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
-
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start(time);
-      osc.stop(time + duration);
-    }
-
     class WordEntity {
-      constructor(data, slot, index) {
+      constructor(data, slot) {
         this.text = data.text;
         this.lang = data.lang;
-        this.slotX = slot.x;
-        this.slotY = slot.y;
-        this.index = index;
-
+        this.slotX = slot.x; this.slotY = slot.y;
         this.visible = false;
-        this.revealedAt = 0;
-        this.scaleAnim = 0;
         this.opacity = 0;
-        this.glow = 0;
-
-        // Distinct romantic hues: Rosy pink, Ruby, Crimson, Peach, Fuchsia
-        const hueOptions = [335, 345, 355, 320, 15];
-        this.hue = hueOptions[index % hueOptions.length];
-        this.fontSize = 11 + (Math.random() * 5); // Responsive font size range
-        this.tilt = (Math.random() - 0.5) * 0.22;
+        this.fontSize = 11 + Math.random() * 4;
       }
-
-      reveal(timestamp) {
-        this.visible = true;
-        this.revealedAt = timestamp;
-      }
-
-      update(timestamp) {
+      reveal() { this.visible = true; }
+      update() { if (this.visible && this.opacity < 1) this.opacity += 0.1; }
+      draw(ctx, centerX, centerY, scale) {
         if (!this.visible) return;
-        const elapsed = (timestamp - this.revealedAt) / 1000;
-
-        // Pop in with smooth elastic bounce
-        if (elapsed < 0.6) {
-          const progress = elapsed / 0.6;
-          this.scaleAnim = 1.35 * Math.sin(progress * Math.PI * 0.7);
-          this.opacity = Math.min(1, progress * 1.5);
-          this.glow = (1 - progress) * 25;
-        } else {
-          this.scaleAnim = 1;
-          this.opacity = 1;
-          this.glow = 4;
-        }
-      }
-
-      draw(ctx, centerX, centerY, globalPulseScale) {
-        if (!this.visible || this.opacity <= 0) return;
-
         ctx.save();
-        const posX = centerX + this.slotX * globalPulseScale;
-        const posY = centerY + this.slotY * globalPulseScale;
-
-        ctx.translate(posX, posY);
-        ctx.rotate(this.tilt);
-
-        const activeSize = this.fontSize * this.scaleAnim * (0.92 + (globalPulseScale - 1) * 1.5);
-        ctx.font = `600 ${Math.max(8, activeSize)}px 'Dancing Script', 'Inter', sans-serif`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-
-        if (this.glow > 2) {
-          ctx.shadowColor = `hsla(${this.hue}, 100%, 75%, 0.9)`;
-          ctx.shadowBlur = this.glow;
-        }
-
-        ctx.fillStyle = `hsla(${this.hue}, 95%, 86%, ${this.opacity})`;
+        ctx.translate(centerX + this.slotX * scale, centerY + this.slotY * scale);
+        ctx.font = `600 ${this.fontSize}px 'Inter', sans-serif`;
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillStyle = `rgba(255, 192, 203, ${this.opacity})`;
         ctx.fillText(this.text, 0, 0);
-        ctx.restore();
-      }
-    }
-
-    class SparkleParticle {
-      constructor(x, y, isBig = false) {
-        this.x = x;
-        this.y = y;
-        const angle = Math.random() * Math.PI * 2;
-        const speed = isBig ? (1.5 + Math.random() * 4.5) : (0.5 + Math.random() * 2);
-        this.vx = Math.cos(angle) * speed;
-        this.vy = Math.sin(angle) * speed - (isBig ? 1.5 : 0.5);
-        this.size = (isBig ? 12 : 7) * (0.6 + Math.random() * 0.8);
-        this.life = 1;
-        this.decay = 0.015 + Math.random() * 0.025;
-        this.color = `hsl(${330 + Math.random() * 45}, 100%, 75%)`;
-        this.rotation = Math.random() * Math.PI;
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        this.vy += 0.025;
-        this.rotation += 0.04;
-        this.life -= this.decay;
-      }
-
-      draw(ctx) {
-        if (this.life <= 0) return;
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.rotation);
-        ctx.globalAlpha = Math.max(0, this.life);
-        ctx.fillStyle = this.color;
-
-        // Little Heart Sparkle
-        const s = this.size;
-        ctx.beginPath();
-        ctx.moveTo(0, s * 0.3);
-        ctx.bezierCurveTo(-s * 0.5, -s * 0.3, -s, s * 0.2, 0, s);
-        ctx.bezierCurveTo(s, s * 0.2, s * 0.5, -s * 0.3, 0, s * 0.3);
-        ctx.fill();
         ctx.restore();
       }
     }
 
     const totalWords = UNIQUE_LOVE_TRANSLATIONS.length;
     let wordEntities = [];
-    let sparkles = [];
-    let isSurpriseRunning = false;
-    let isCompleted = false;
-    let currentRevealIndex = 0;
-    let revealTimer = null;
-    let speedDelay = 380; // Default cadence (~0.38 - 0.4s rhythmic reveal)
-    let isFastSpeed = false;
-
-    // Background stardust
-    const stars = Array.from({ length: 70 }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-      size: Math.random() * 1.8 + 0.5,
-      alpha: Math.random() * 0.7 + 0.2,
-      speed: Math.random() * 0.02 + 0.01
-    }));
+    let isCompleted = false, currentRevealIndex = 0, revealTimer = null;
 
     function initWordEntities() {
       const slots = generateHeartSlots(totalWords, heartScale);
-      wordEntities = UNIQUE_LOVE_TRANSLATIONS.map((item, index) => {
-        return new WordEntity(item, slots[index], index);
-      });
+      wordEntities = UNIQUE_LOVE_TRANSLATIONS.map((item, i) => new WordEntity(item, slots[i]));
     }
-    initWordEntities();
 
-    // DOM References
-    const introOverlay = document.getElementById('introOverlay');
-    const startSurpriseBtn = document.getElementById('startSurpriseBtn');
-    const topHUD = document.getElementById('topHUD');
-    const bottomControls = document.getElementById('bottomControls');
-    const currentLangBadge = document.getElementById('currentLangBadge');
-    const progressBar = document.getElementById('progressBar');
-    const progressPercent = document.getElementById('progressPercent');
-    const soundToggleBtn = document.getElementById('soundToggleBtn');
-    const soundIcon = document.getElementById('soundIcon');
-    const speedToggleBtn = document.getElementById('speedToggleBtn');
-    const speedLabel = document.getElementById('speedLabel');
-    const customNameBtn = document.getElementById('customNameBtn');
-    const replayBtn = document.getElementById('replayBtn');
-    const nameModal = document.getElementById('nameModal');
-    const partnerNameInput = document.getElementById('partnerNameInput');
-    const savePartnerName = document.getElementById('savePartnerName');
-    const clearPartnerName = document.getElementById('clearPartnerName');
-    const closeNameModal = document.getElementById('closeNameModal');
+    // Dom Elements
+    const passwordOverlay = document.getElementById('passwordOverlay');
+    const passInput = document.getElementById('passInput');
+    const submitPassBtn = document.getElementById('submitPassBtn');
+    const errorMsg = document.getElementById('errorMsg');
 
-    function startSurpriseExperience() {
-      initAudio();
-      isSurpriseRunning = true;
-      currentRevealIndex = 0;
-      isCompleted = false;
+    const adminModal = document.getElementById('adminModal');
+    const openAdminBtn = document.getElementById('openAdminBtn');
+    const closeAdminModal = document.getElementById('closeAdminModal');
+    const verifyAdminBtn = document.getElementById('verifyAdminBtn');
+    const adminPassInput = document.getElementById('adminPassInput');
+    const adminAuthBox = document.getElementById('adminAuthBox');
+    const adminFormBox = document.getElementById('adminFormBox');
+    const createSurpriseBtn = document.getElementById('createSurpriseBtn');
+    const resultBox = document.getElementById('resultBox');
+    const generatedPass = document.getElementById('generatedPass');
 
-      // Smoothly hide intro overlay into darkness
-      introOverlay.classList.add('opacity-0', 'pointer-events-none');
-      setTimeout(() => {
-        introOverlay.style.display = 'none';
-        topHUD.classList.remove('opacity-0');
-        bottomControls.classList.remove('opacity-0');
-      }, 1000);
+    // Admin Modali
+    openAdminBtn.addEventListener('click', () => adminModal.classList.remove('hidden'));
+    closeAdminModal.addEventListener('click', () => adminModal.classList.add('hidden'));
 
-      runNextReveal();
+    verifyAdminBtn.addEventListener('click', () => {
+      if (adminPassInput.value === 'admin123') {
+        adminAuthBox.classList.add('hidden');
+        adminFormBox.classList.remove('hidden');
+      } else {
+        alert('Admin kaliti noto\'g'ri!');
+      }
+    });
+
+    createSurpriseBtn.addEventListener('click', () => {
+      const girlName = document.getElementById('newGirlName').value.trim();
+      const message = document.getElementById('newMessage').value.trim();
+      const sender = document.getElementById('newSenderName').value.trim();
+
+      if (!girlName || !message) {
+        alert('Iltimos, qizning ismi va izhorni kiriting!');
+        return;
+      }
+
+      const newPass = girlName.toLowerCase().replace(/\s+/g, '') + Math.floor(100 + Math.random() * 900);
+      const db = getDatabase();
+      db[newPass] = { name: girlName, message: message, sender: sender || "Sizni sevguvchi" };
+      saveToDatabase(db);
+
+      generatedPass.textContent = newPass;
+      resultBox.classList.remove('hidden');
+    });
+
+    // Parol Tekshirish va Syurprizni Boshlash
+    submitPassBtn.addEventListener('click', checkPasswordAndStart);
+    passInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') checkPasswordAndStart(); });
+
+    function checkPasswordAndStart() {
+      const pass = passInput.value.trim().toLowerCase();
+      const db = getDatabase();
+
+      if (db[pass]) {
+        currentActiveSurprise = db[pass];
+        passwordOverlay.classList.add('opacity-0');
+        setTimeout(() => {
+          passwordOverlay.style.display = 'none';
+          document.getElementById('topHUD').classList.remove('opacity-0');
+          document.getElementById('bottomControls').classList.remove('opacity-0');
+          initAudio();
+          initWordEntities();
+          runNextReveal();
+        }, 800);
+      } else {
+        errorMsg.classList.remove('hidden');
+      }
     }
 
     function runNextReveal() {
-      if (!isSurpriseRunning) return;
-
       if (currentRevealIndex < wordEntities.length) {
         const item = wordEntities[currentRevealIndex];
-        const now = performance.now();
-        item.reveal(now);
+        item.reveal();
+        document.getElementById('currentLangBadge').textContent = `${item.lang}: "${item.text}"`;
+        const pct = Math.round(((currentRevealIndex + 1) / totalWords) * 100);
+        document.getElementById('progressBar').style.width = `${pct}%`;
+        document.getElementById('progressPercent').textContent = `${pct}%`;
 
-        // Update Header HUD
-        currentLangBadge.textContent = `${item.lang}: "${item.text}"`;
-        const percent = Math.round(((currentRevealIndex + 1) / totalWords) * 100);
-        progressBar.style.width = `${percent}%`;
-        progressPercent.textContent = `${percent}%`;
-
-        // Sound & Sparkle trigger
-        playWordChime(currentRevealIndex, totalWords);
-        const centerX = width / 2;
-        const centerY = height / 2 - 20;
-        sparkles.push(new SparkleParticle(centerX + item.slotX, centerY + item.slotY, false));
-
+        playWordChime(currentRevealIndex);
         currentRevealIndex++;
-        revealTimer = setTimeout(runNextReveal, speedDelay);
+        revealTimer = setTimeout(runNextReveal, 350);
       } else {
-        // Complete state: Formation of unified breathing heart!
-        completeHeartFormation();
+        isCompleted = true;
+        document.getElementById('currentLangBadge').innerHTML = `<span class="text-rose-300 font-bold">YURAK SHAKLLANDI! ❤</span>`;
       }
     }
 
-    function completeHeartFormation() {
-      isCompleted = true;
-      currentLangBadge.innerHTML = `<span class="text-rose-300 font-bold tracking-widest">YURAK TO'LIQ SHAKLLANDI! ❤</span>`;
-      progressBar.style.width = '100%';
-      progressPercent.textContent = '100%';
-
-      // Final celebration burst of sparks from center
-      const centerX = width / 2;
-      const centerY = height / 2 - 20;
-      for (let i = 0; i < 60; i++) {
-        sparkles.push(new SparkleParticle(centerX, centerY, true));
-      }
-      playThumpSound();
-    }
-
-    function restartSurprise() {
-      if (revealTimer) clearTimeout(revealTimer);
-      initWordEntities();
-      currentRevealIndex = 0;
-      isCompleted = false;
-      progressBar.style.width = '0%';
-      progressPercent.textContent = '0%';
-      currentLangBadge.textContent = "Qayta boshlanmoqda...";
-      runNextReveal();
-    }
-
-    startSurpriseBtn.addEventListener('click', startSurpriseExperience);
-
-    soundToggleBtn.addEventListener('click', () => {
-      initAudio();
-      isSoundMuted = !isSoundMuted;
-      if (isSoundMuted) {
-        soundIcon.className = 'fa-solid fa-volume-xmark text-gray-400';
-      } else {
-        soundIcon.className = 'fa-solid fa-volume-high text-pink-400';
-      }
-    });
-
-    speedToggleBtn.addEventListener('click', () => {
-      isFastSpeed = !isFastSpeed;
-      if (isFastSpeed) {
-        speedDelay = 140; // 3x Faster speed
-        speedLabel.textContent = "Tezlik: Tez (3x)";
-        speedToggleBtn.classList.add('border-rose-400', 'bg-rose-900/50');
-      } else {
-        speedDelay = 380; // Normal tempo
-        speedLabel.textContent = "Tezlik: Normal";
-        speedToggleBtn.classList.remove('border-rose-400', 'bg-rose-900/50');
-      }
-    });
-
-    replayBtn.addEventListener('click', restartSurprise);
-
-    // Name Customization Modal events
-    customNameBtn.addEventListener('click', () => {
-      nameModal.classList.remove('hidden');
-      partnerNameInput.value = partnerName;
-    });
-
-    closeNameModal.addEventListener('click', () => nameModal.classList.add('hidden'));
-
-    savePartnerName.addEventListener('click', () => {
-      partnerName = partnerNameInput.value.trim();
-      nameModal.classList.add('hidden');
-      const centerX = width / 2;
-      const centerY = height / 2 - 20;
-      for (let i = 0; i < 35; i++) {
-        sparkles.push(new SparkleParticle(centerX, centerY, true));
-      }
-    });
-
-    clearPartnerName.addEventListener('click', () => {
-      partnerName = "";
-      partnerNameInput.value = "";
-      nameModal.classList.add('hidden');
-    });
-
-    // Touch/click canvas to emit love sparks
-    function onTouchCanvas(e) {
-      if (!isSurpriseRunning) return;
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-      for (let i = 0; i < 15; i++) {
-        sparkles.push(new SparkleParticle(clientX, clientY, true));
-      }
-      playWordChime(Math.floor(Math.random() * totalWords), totalWords);
-    }
-    canvas.addEventListener('click', onTouchCanvas);
-    canvas.addEventListener('touchstart', onTouchCanvas, { passive: true });
-
-    let beatTime = 0;
-    let lastAudioThump = 0;
-
-    function renderLoop(timestamp) {
+    function renderLoop() {
       ctx.clearRect(0, 0, width, height);
-
-      // 1. Draw Subtle Stardust Background
-      stars.forEach(st => {
-        st.alpha += st.speed;
-        if (st.alpha > 0.8 || st.alpha < 0.15) st.speed = -st.speed;
-        ctx.fillStyle = `rgba(255, 192, 203, ${Math.max(0, st.alpha)})`;
-        ctx.beginPath();
-        ctx.arc(st.x, st.y, st.size, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
       const centerX = width / 2;
       const centerY = height / 2 - 20;
 
-      // 2. Cardiac Pulse Factor (starts gentle, beats passionately upon 100% completion)
-      let pulseScale = 1;
-      if (isCompleted) {
-        beatTime += 0.052;
-        const rawPulse = Math.sin(beatTime * 3.0);
-        if (rawPulse > 0.25) {
-          pulseScale = 1 + Math.pow(Math.sin((rawPulse - 0.25) / 0.75 * Math.PI), 2) * 0.15;
-        }
-
-        // Trigger organic heartbeat audio on peak
-        if (rawPulse > 0.95 && Date.now() - lastAudioThump > 650) {
-          lastAudioThump = Date.now();
-          playThumpSound();
-        }
-      }
-
-      // 3. Glowing Heart Cardioid Outline & Soft Background Aura
-      if (isSurpriseRunning) {
-        ctx.save();
-        ctx.translate(centerX, centerY);
-
-        // Radiant Soft Heart Aura
-        const aura = ctx.createRadialGradient(0, 0, 10, 0, 0, heartScale * 22 * pulseScale);
-        aura.addColorStop(0, isCompleted ? 'rgba(244, 63, 94, 0.26)' : 'rgba(244, 63, 94, 0.12)');
-        aura.addColorStop(0.7, 'rgba(159, 18, 57, 0.05)');
-        aura.addColorStop(1, 'rgba(0, 0, 0, 0)');
-        ctx.fillStyle = aura;
-        ctx.beginPath();
-        ctx.arc(0, 0, heartScale * 24 * pulseScale, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Delicate Cardioid Contour
-        ctx.beginPath();
-        for (let t = 0; t <= Math.PI * 2 + 0.05; t += 0.04) {
-          const pt = getCardioidPoint(t, heartScale * pulseScale);
-          if (t === 0) ctx.moveTo(pt.x, pt.y);
-          else ctx.lineTo(pt.x, pt.y);
-        }
-        ctx.closePath();
-        ctx.strokeStyle = isCompleted ? 'rgba(251, 113, 133, 0.5)' : 'rgba(251, 113, 133, 0.22)';
-        ctx.lineWidth = 1.8;
-        ctx.shadowColor = 'rgba(244, 63, 94, 0.7)';
-        ctx.shadowBlur = isCompleted ? 20 : 10;
-        ctx.stroke();
-        ctx.restore();
-      }
-
-      // 4. Render Multilingual Love Words
-      wordEntities.forEach(word => {
-        word.update(timestamp);
-        word.draw(ctx, centerX, centerY, pulseScale);
+      wordEntities.forEach(w => {
+        w.update();
+        w.draw(ctx, centerX, centerY, 1);
       });
 
-      // 5. Centerpiece Crown: "MEN SENI SEVAMAN" & Partner Name (Beams brightly once complete)
-      if (isCompleted) {
+      // Markazdagi Maxsus Izhor
+      if (isCompleted && currentActiveSurprise) {
         ctx.save();
         ctx.translate(centerX, centerY);
         ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
 
-        const mainText = partnerName ? partnerName : "Men Seni Sevaman";
-        const subText = partnerName ? "Men Seni Sevaman" : "I Love You";
-
-        // Primary Golden-Rose Centerpiece
-        const titleSize = Math.max(22, Math.min(46, heartScale * 1.8)) * pulseScale;
-        ctx.font = `700 ${titleSize}px 'Dancing Script', cursive`;
-        ctx.shadowColor = 'rgba(255, 60, 110, 0.95)';
-        ctx.shadowBlur = 28;
+        ctx.font = `700 ${Math.max(22, heartScale * 1.5)}px 'Dancing Script', cursive`;
         ctx.fillStyle = '#ffffff';
-        ctx.fillText(mainText, 0, -titleSize * 0.35);
+        ctx.shadowColor = 'rgba(244, 63, 94, 0.9)'; ctx.shadowBlur = 20;
+        ctx.fillText(currentActiveSurprise.message, 0, -10);
 
-        // Subtitle English/Romance text
-        const subSize = Math.max(14, Math.min(26, heartScale * 1.1)) * pulseScale;
-        ctx.font = `600 ${subSize}px 'Great Vibes', cursive`;
-        ctx.shadowColor = 'rgba(244, 63, 94, 0.85)';
-        ctx.shadowBlur = 18;
+        ctx.font = `600 ${Math.max(14, heartScale * 0.9)}px 'Great Vibes', cursive`;
         ctx.fillStyle = '#fecdd3';
-        ctx.fillText(subText, 0, subSize * 0.95);
-
+        ctx.fillText(currentActiveSurprise.sender, 0, 25);
         ctx.restore();
-      }
-
-      // 6. Draw & Update Sparkle Confetti
-      for (let i = sparkles.length - 1; i >= 0; i--) {
-        sparkles[i].update();
-        sparkles[i].draw(ctx);
-        if (sparkles[i].life <= 0) {
-          sparkles.splice(i, 1);
-        }
       }
 
       requestAnimationFrame(renderLoop);
     }
 
-    // Launch render loop on startup
-    window.onload = function() {
-      requestAnimationFrame(renderLoop);
-    };
+    window.onload = () => requestAnimationFrame(renderLoop);
   </script>
 </body>
 </html>
