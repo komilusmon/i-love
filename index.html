@@ -28,7 +28,7 @@
   <!-- Interaktiv Canvas -->
   <canvas id="heartCanvas" class="absolute inset-0 w-full h-full block z-0"></canvas>
 
-  <!-- 1. PAROL KIRITISH OVERLAY (Dastlabki Qora Ekran) -->
+  <!-- 1. PAROL KIRITISH OVERLAY -->
   <div id="passwordOverlay" class="absolute inset-0 bg-black z-40 flex flex-col items-center justify-center p-4 text-center">
     <div class="glass-box p-8 rounded-3xl max-w-sm w-full border border-rose-500/30 shadow-[0_0_50px_rgba(244,63,94,0.3)]">
       <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-rose-950/50 border border-rose-500/40 text-rose-400 text-2xl shadow-lg">
@@ -156,7 +156,6 @@
       }
     };
 
-    // LocalStorage xotirasini boshqarish
     function getDatabase() {
       try {
         const stored = localStorage.getItem('love_surprises_db');
@@ -174,6 +173,7 @@
       localStorage.setItem('love_surprises_db', JSON.stringify(db));
     }
 
+    // 80 dan ortiq kengaytirilgan tillar ro'yxati
     const UNIQUE_LOVE_TRANSLATIONS = [
       { text: "Men seni sevaman", lang: "O'zbekcha" },
       { text: "I love you", lang: "Inglizcha" },
@@ -190,11 +190,39 @@
       { text: "دوستت دارم", lang: "Forscha" },
       { text: "Eu te amo", lang: "Portugalcha" },
       { text: "Σ' αγαπώ", lang: "Yunoncha" },
+      { text: "Ik hou van jou", lang: "Gollandcha" },
       { text: "Kocham cię", lang: "Polyakcha" },
+      { text: "Jag älskar dig", lang: "Shvedcha" },
+      { text: "Jeg elsker deg", lang: "Norvegcha" },
+      { text: "Minä rakastan sinua", lang: "Fincha" },
+      { text: "Я тебе кохаю", lang: "Ukraincha" },
       { text: "Mən səni sevirəm", lang: "Ozarbayjoncha" },
       { text: "Мен сені сүйемін", lang: "Qozoqcha" },
+      { text: "Мен сени сүйөм", lang: "Qirg'izcha" },
+      { text: "Ман туро дӯст медорам", lang: "Tojikcha" },
       { text: "Szeretlek", lang: "Vengercha" },
-      { text: "Te iubesc", lang: "Rumincha" }
+      { text: "Miluji tě", lang: "Chexcha" },
+      { text: "Te iubesc", lang: "Rumincha" },
+      { text: "Обичам те", lang: "Bolgarcha" },
+      { text: "Volim te", lang: "Xorvatcha" },
+      { text: "Aku cinta kamu", lang: "Indonezcha" },
+      { text: "Anh yêu em", lang: "Vyetnamcha" },
+      { text: "ฉันรักเธอ", lang: "Taycha" },
+      { text: "Mahal kita", lang: "Filipincha" },
+      { text: "მიყვარხარ", lang: "Gruzincha" },
+      { text: "Ես քեզ սիրում եմ", lang: "Armancha" },
+      { text: "אני אוהב אותך", lang: "Ibroniycha" },
+      { text: "T'estimo", lang: "Katalancha" },
+      { text: "Aš tave myliu", lang: "Litovcha" },
+      { text: "Es tevi mīlu", lang: "Latishcha" },
+      { text: "Ma armastan sind", lang: "Estoncha" },
+      { text: "Ek het jou lief", lang: "Afrikaans" },
+      { text: "Aloha au iā 'oe", lang: "Gavayi" },
+      { text: "Ngiyakuthanda", lang: "Zulucha" },
+      { text: "Ndiyakuthanda", lang: "Xosacha" },
+      { text: "Yuragimning sultoni", lang: "Romantika" },
+      { text: "Sen mening borlig'imsan", lang: "Izhor" },
+      { text: "Hayotim mazmunisan", lang: "Muhabbat" }
     ];
 
     const canvas = document.getElementById('heartCanvas');
@@ -209,30 +237,50 @@
       canvas.height = height * window.devicePixelRatio;
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
       const minDim = Math.min(width, height);
-      heartScale = minDim < 450 ? minDim / 42 : minDim / 38;
+      heartScale = minDim < 450 ? minDim / 45 : minDim / 40;
     }
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
+    // Yurak (Cardioid) formulasi
     function getCardioidPoint(t, scale) {
       const x = 16 * Math.pow(Math.sin(t), 3);
       const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
       return { x: x * scale, y: y * scale };
     }
 
+    // So'zlar bir-birining ustiga chiqib qolmasligi uchun tarqoq va tartibli joylar generatsiyasi
     function generateHeartSlots(count, scale) {
       const slots = [];
-      const perimeterCount = Math.floor(count * 0.45);
+      const perimeterCount = Math.floor(count * 0.4);
+      
+      // Chegara bo'ylab joylashuv
       for (let i = 0; i < perimeterCount; i++) {
         const t = (i / perimeterCount) * Math.PI * 2;
         const pt = getCardioidPoint(t, scale);
-        slots.push({ x: pt.x * 0.9, y: pt.y * 0.9 });
+        slots.push({ x: pt.x * 0.85, y: pt.y * 0.85 });
       }
-      while (slots.length < count) {
+
+      // Ichki qismni bir-biriga tegmaydigan qilib to'ldirish
+      let attempts = 0;
+      while (slots.length < count && attempts < 2000) {
+        attempts++;
         const t = Math.random() * Math.PI * 2;
-        const r = Math.sqrt(Math.random()) * 0.78;
+        const r = Math.sqrt(Math.random()) * 0.72;
         const edge = getCardioidPoint(t, scale);
-        slots.push({ x: edge.x * r, y: edge.y * r });
+        const candX = edge.x * r;
+        const candY = edge.y * r;
+
+        let tooClose = false;
+        for (let s of slots) {
+          if (Math.hypot(s.x - candX, s.y - candY) < scale * 1.3) {
+            tooClose = true;
+            break;
+          }
+        }
+        if (!tooClose) {
+          slots.push({ x: candX, y: candY });
+        }
       }
       return slots;
     }
@@ -246,35 +294,46 @@
     function playWordChime(index) {
       if (isSoundMuted || !audioCtx) return;
       try {
-        const freqs = [261.63, 329.63, 392.00, 523.25, 659.25];
+        const freqs = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99];
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.frequency.setValueAtTime(freqs[index % freqs.length], audioCtx.currentTime);
-        gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.5);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.4);
         osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.5);
+        osc.start(); osc.stop(audioCtx.currentTime + 0.4);
       } catch (e) {}
     }
 
     class WordEntity {
-      constructor(data, slot) {
+      constructor(data, slot, index) {
         this.text = data.text;
         this.lang = data.lang;
-        this.slotX = slot.x; this.slotY = slot.y;
+        this.slotX = slot.x; 
+        this.slotY = slot.y;
         this.visible = false;
         this.opacity = 0;
-        this.fontSize = 11 + Math.random() * 4;
+        this.scaleAnim = 0;
+        this.fontSize = 10 + Math.random() * 3.5;
+        this.hue = 330 + (index * 4) % 30;
       }
-      reveal() { this.visible = true; }
-      update() { if (this.visible && this.opacity < 1) this.opacity += 0.1; }
+      reveal() { 
+        this.visible = true; 
+      }
+      update() { 
+        if (this.visible && this.opacity < 1) {
+          this.opacity += 0.12;
+          this.scaleAnim = Math.min(1, this.scaleAnim + 0.15);
+        }
+      }
       draw(ctx, centerX, centerY, scale) {
         if (!this.visible) return;
         ctx.save();
         ctx.translate(centerX + this.slotX * scale, centerY + this.slotY * scale);
         ctx.font = `600 ${this.fontSize}px 'Inter', sans-serif`;
-        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.fillStyle = `rgba(255, 192, 203, ${this.opacity})`;
+        ctx.textAlign = 'center'; 
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = `hsla(${this.hue}, 90%, 85%, ${this.opacity})`;
         ctx.fillText(this.text, 0, 0);
         ctx.restore();
       }
@@ -286,10 +345,9 @@
 
     function initWordEntities() {
       const slots = generateHeartSlots(totalWords, heartScale);
-      wordEntities = UNIQUE_LOVE_TRANSLATIONS.map((item, i) => new WordEntity(item, slots[i]));
+      wordEntities = UNIQUE_LOVE_TRANSLATIONS.map((item, i) => new WordEntity(item, slots[i], i));
     }
 
-    // DOM Elementlari Yuklanishi Tekshiruvi
     window.addEventListener('DOMContentLoaded', () => {
       const passwordOverlay = document.getElementById('passwordOverlay');
       const passInput = document.getElementById('passInput');
@@ -308,18 +366,13 @@
       const generatedPass = document.getElementById('generatedPass');
       const copyPassBtn = document.getElementById('copyPassBtn');
 
-      // Admin Modalini Ochish
       openAdminBtn.addEventListener('click', (e) => {
         e.preventDefault();
         adminModal.classList.remove('hidden');
       });
 
-      // Admin Modalini Yopish
-      closeAdminModal.addEventListener('click', () => {
-        adminModal.classList.add('hidden');
-      });
+      closeAdminModal.addEventListener('click', () => adminModal.classList.add('hidden'));
 
-      // Admin Parolini Tekshirish
       verifyAdminBtn.addEventListener('click', () => {
         if (adminPassInput.value.trim() === 'admin123') {
           adminAuthBox.classList.add('hidden');
@@ -329,7 +382,6 @@
         }
       });
 
-      // Yangi Parol va Izhor Yaratish
       createSurpriseBtn.addEventListener('click', () => {
         const girlName = document.getElementById('newGirlName').value.trim();
         const message = document.getElementById('newMessage').value.trim();
@@ -340,30 +392,21 @@
           return;
         }
 
-        // Avtomatik takrorlanmas parol yaratish
         const generatedKey = girlName.toLowerCase().replace(/[^a-z0-9]/g, '') + Math.floor(100 + Math.random() * 900);
-        
         const db = getDatabase();
-        db[generatedKey] = {
-          name: girlName,
-          message: message,
-          sender: sender || "Sizni sevguvchi"
-        };
+        db[generatedKey] = { name: girlName, message: message, sender: sender || "Sizni sevguvchi" };
         saveToDatabase(db);
 
         generatedPass.textContent = generatedKey;
         resultBox.classList.remove('hidden');
       });
 
-      // Parolni Nusxalash
       copyPassBtn.addEventListener('click', () => {
-        const text = generatedPass.textContent;
-        navigator.clipboard.writeText(text).then(() => {
-          alert('Parol nusxalandi: ' + text);
+        navigator.clipboard.writeText(generatedPass.textContent).then(() => {
+          alert('Parol nusxalandi: ' + generatedPass.textContent);
         });
       });
 
-      // Qiz Kirishi Uchun Parolni Tekshirish
       function checkPasswordAndStart() {
         const pass = passInput.value.trim().toLowerCase();
         const db = getDatabase();
@@ -385,11 +428,8 @@
       }
 
       submitPassBtn.addEventListener('click', checkPasswordAndStart);
-      passInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') checkPasswordAndStart();
-      });
+      passInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') checkPasswordAndStart(); });
 
-      // Replay Tugmasi
       document.getElementById('replayBtn').addEventListener('click', () => {
         if (revealTimer) clearTimeout(revealTimer);
         initWordEntities();
@@ -412,21 +452,28 @@
 
         playWordChime(currentRevealIndex);
         currentRevealIndex++;
-        revealTimer = setTimeout(runNextReveal, 350);
+        revealTimer = setTimeout(runNextReveal, 280);
       } else {
         isCompleted = true;
         document.getElementById('currentLangBadge').innerHTML = `<span class="text-rose-300 font-bold">YURAK SHAKLLANDI! ❤</span>`;
       }
     }
 
+    let beatTime = 0;
     function renderLoop() {
       ctx.clearRect(0, 0, width, height);
       const centerX = width / 2;
       const centerY = height / 2 - 20;
 
+      let pulse = 1;
+      if (isCompleted) {
+        beatTime += 0.05;
+        pulse = 1 + Math.sin(beatTime * 3) * 0.06;
+      }
+
       wordEntities.forEach(w => {
         w.update();
-        w.draw(ctx, centerX, centerY, 1);
+        w.draw(ctx, centerX, centerY, pulse);
       });
 
       // Markazdagi Maxsus Izhor
@@ -434,15 +481,20 @@
         ctx.save();
         ctx.translate(centerX, centerY);
         ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
 
-        ctx.font = `700 ${Math.max(22, heartScale * 1.5)}px 'Dancing Script', cursive`;
+        const mainSize = Math.max(20, heartScale * 1.4);
+        ctx.font = `700 ${mainSize}px 'Dancing Script', cursive`;
         ctx.fillStyle = '#ffffff';
-        ctx.shadowColor = 'rgba(244, 63, 94, 0.9)'; ctx.shadowBlur = 20;
-        ctx.fillText(currentActiveSurprise.message, 0, -10);
+        ctx.shadowColor = 'rgba(244, 63, 94, 0.95)'; 
+        ctx.shadowBlur = 22;
+        ctx.fillText(currentActiveSurprise.message, 0, -12);
 
-        ctx.font = `600 ${Math.max(14, heartScale * 0.9)}px 'Great Vibes', cursive`;
+        const subSize = Math.max(13, heartScale * 0.85);
+        ctx.font = `600 ${subSize}px 'Great Vibes', cursive`;
         ctx.fillStyle = '#fecdd3';
-        ctx.fillText(currentActiveSurprise.sender, 0, 25);
+        ctx.shadowBlur = 15;
+        ctx.fillText(currentActiveSurprise.sender, 0, 22);
         ctx.restore();
       }
 
