@@ -15,7 +15,7 @@
     body { font-family: 'Inter', sans-serif; background-color: #000; color: #ffe4e6; margin: 0; padding: 0; overflow: hidden; }
     .font-romantic { font-family: 'Dancing Script', cursive; }
     .font-vibes { font-family: 'Great Vibes', cursive; }
-    .glass-box { background: rgba(15, 5, 15, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(244, 114, 182, 0.3); }
+    .glass-box { background: rgba(15, 5, 15, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(244, 114, 182, 0.3); }
     @keyframes deepPulse {
       0%, 100% { box-shadow: 0 0 25px rgba(244, 63, 94, 0.4); transform: scale(1); }
       50% { box-shadow: 0 0 50px rgba(244, 63, 94, 0.8); transform: scale(1.05); }
@@ -29,7 +29,7 @@
   <canvas id="heartCanvas" class="absolute inset-0 w-full h-full block z-0"></canvas>
 
   <!-- 1. PAROL KIRITISH OVERLAY (Dastlabki Qora Ekran) -->
-  <div id="passwordOverlay" class="absolute inset-0 bg-black z-50 flex flex-col items-center justify-center p-4 text-center">
+  <div id="passwordOverlay" class="absolute inset-0 bg-black z-40 flex flex-col items-center justify-center p-4 text-center">
     <div class="glass-box p-8 rounded-3xl max-w-sm w-full border border-rose-500/30 shadow-[0_0_50px_rgba(244,63,94,0.3)]">
       <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-rose-950/50 border border-rose-500/40 text-rose-400 text-2xl shadow-lg">
         <i class="fa-solid fa-lock animate-pulse"></i>
@@ -41,7 +41,7 @@
         Davom etish uchun sizga berilgan maxsus parolni kiriting:
       </p>
 
-      <input type="password" id="passInput" placeholder="Parolni kiriting..." class="w-full px-4 py-3 rounded-xl bg-pink-950/40 border border-pink-500/40 text-rose-100 placeholder-pink-300/30 text-center tracking-widest focus:outline-none focus:ring-2 focus:ring-rose-400 text-base mb-3">
+      <input type="text" id="passInput" placeholder="Parolni kiriting..." class="w-full px-4 py-3 rounded-xl bg-pink-950/40 border border-pink-500/40 text-rose-100 placeholder-pink-300/30 text-center tracking-widest focus:outline-none focus:ring-2 focus:ring-rose-400 text-base mb-3">
       
       <p id="errorMsg" class="text-xs text-red-400 hidden mb-3 font-semibold">Parol noto'g'ri! Qayta urinib ko'ring.</p>
 
@@ -50,53 +50,62 @@
       </button>
 
       <!-- Admin Panel Tugmasi -->
-      <button id="openAdminBtn" class="mt-6 text-xs text-rose-300/40 hover:text-rose-300 flex items-center justify-center gap-1 mx-auto transition-colors">
-        <i class="fa-solid fa-gear"></i> Yangi Arizalar (Admin)
+      <button id="openAdminBtn" type="button" class="mt-6 text-xs text-rose-300/50 hover:text-rose-300 flex items-center justify-center gap-1.5 mx-auto transition-colors cursor-pointer py-1 px-3 rounded-lg hover:bg-rose-950/30">
+        <i class="fa-solid fa-gear text-pink-400"></i> Admin Panel
       </button>
     </div>
   </div>
 
-  <!-- 2. ADMIN PANEL MODAL (Parol Yaratish Uchn) -->
+  <!-- 2. ADMIN PANEL MODAL -->
   <div id="adminModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="glass-box w-full max-w-md p-6 rounded-3xl border border-pink-400/40">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl font-romantic font-bold text-pink-300">
-          <i class="fa-solid fa-user-plus text-rose-400 mr-2"></i>Yangi Syurpriz Yaratish
+    <div class="glass-box w-full max-w-md p-6 rounded-3xl border border-pink-400/40 shadow-2xl">
+      <div class="flex justify-between items-center mb-4 border-b border-rose-500/20 pb-3">
+        <h3 class="text-lg font-romantic font-bold text-pink-300 flex items-center gap-2">
+          <i class="fa-solid fa-user-gear text-rose-400"></i> Admin Panel
         </h3>
-        <button id="closeAdminModal" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+        <button id="closeAdminModal" type="button" class="text-gray-400 hover:text-white p-1 text-xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
 
-      <!-- Admin Parol Tekshiruvi -->
-      <div id="adminAuthBox">
-        <p class="text-xs text-rose-200/70 mb-3">Admin panelga kirish uchun maxsus kalitni kiriting (Standart: <code class="text-pink-300">admin123</code>):</p>
-        <input type="password" id="adminPassInput" placeholder="Admin kaliti..." class="w-full px-4 py-2 rounded-xl bg-pink-950/40 border border-pink-500/40 text-rose-100 text-sm mb-3">
-        <button id="verifyAdminBtn" class="w-full py-2.5 rounded-xl bg-rose-600 text-white text-sm font-semibold">Kirish</button>
+      <!-- Admin Kaliti Kirish Qismi -->
+      <div id="adminAuthBox" class="space-y-3">
+        <p class="text-xs text-rose-200/80">Admin panelga kirish uchun maxsus parolni kiriting (Standart parol: <code class="text-pink-300 bg-pink-950 px-1 rounded">admin123</code>):</p>
+        <input type="password" id="adminPassInput" placeholder="Admin kaliti..." class="w-full px-4 py-2.5 rounded-xl bg-pink-950/40 border border-pink-500/40 text-rose-100 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+        <button id="verifyAdminBtn" type="button" class="w-full py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-sm font-semibold transition-all">
+          Kirish
+        </button>
       </div>
 
-      <!-- Admin Forma -->
+      <!-- Admin Parol Yaratish Formasi -->
       <div id="adminFormBox" class="hidden space-y-3">
         <div>
           <label class="block text-xs text-rose-200/80 mb-1">Qizning ismi (masalan: Bonu):</label>
-          <input type="text" id="newGirlName" placeholder="Bonu" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100">
+          <input type="text" id="newGirlName" placeholder="Bonu" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100 focus:outline-none focus:ring-1 focus:ring-rose-400">
         </div>
         <div>
           <label class="block text-xs text-rose-200/80 mb-1">Maxsus Izhor (masalan: Bonu, men seni sevaman!):</label>
-          <input type="text" id="newMessage" placeholder="Bonu, men seni sevaman!" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100">
+          <input type="text" id="newMessage" placeholder="Bonu, men seni sevaman!" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100 focus:outline-none focus:ring-1 focus:ring-rose-400">
         </div>
         <div>
           <label class="block text-xs text-rose-200/80 mb-1">Sizning ismingiz (masalan: Sizni sevguvchi Komil):</label>
-          <input type="text" id="newSenderName" placeholder="Sizni sevguvchi Komil" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100">
+          <input type="text" id="newSenderName" placeholder="Sizni sevguvchi Komil" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100 focus:outline-none focus:ring-1 focus:ring-rose-400">
         </div>
         
-        <button id="createSurpriseBtn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 text-white font-semibold text-sm">
+        <button id="createSurpriseBtn" type="button" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 text-white font-semibold text-sm hover:brightness-110 transition-all shadow-md mt-2">
           Parol Yaratish va Saqlash
         </button>
 
         <!-- Yaratilgan Parol Natijasi -->
-        <div id="resultBox" class="hidden mt-3 p-3 rounded-xl bg-pink-950/60 border border-pink-400/40 text-xs">
-          <p class="text-pink-200 font-bold mb-1">Muvaffaqiyatli saqlandi! 🎉</p>
-          <p>Yuboriladigan Parol: <span id="generatedPass" class="text-rose-300 font-mono text-sm font-bold bg-black/50 px-2 py-0.5 rounded"></span></p>
-          <p class="text-[10px] text-gray-400 mt-1">Ushbu parolni qizga yuboring, u kiritganida ushbu izhor namoyish etiladi.</p>
+        <div id="resultBox" class="hidden mt-3 p-3 rounded-xl bg-pink-950/80 border border-pink-400/50 text-xs text-left">
+          <p class="text-pink-200 font-bold mb-1 flex items-center gap-1">
+            <i class="fa-solid fa-circle-check text-green-400"></i> Muvaffaqiyatli Saqlandi!
+          </p>
+          <p class="text-gray-300">Qizga yuboriladigan Parol:</p>
+          <div class="flex items-center gap-2 mt-1">
+            <span id="generatedPass" class="text-rose-300 font-mono text-base font-bold bg-black/60 px-3 py-1 rounded border border-rose-500/30 flex-1 text-center"></span>
+            <button id="copyPassBtn" type="button" class="px-3 py-1 rounded bg-rose-800 text-white text-xs hover:bg-rose-700">Nusxalash</button>
+          </div>
         </div>
       </div>
     </div>
@@ -122,19 +131,19 @@
 
   <!-- Control Controls -->
   <footer id="bottomControls" class="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-2 rounded-full glass-box opacity-0 transition-opacity duration-700">
-    <button id="soundToggleBtn" class="px-4 py-2 rounded-full bg-rose-950/40 text-rose-200 border border-rose-500/30 text-xs flex items-center gap-2">
+    <button id="soundToggleBtn" type="button" class="px-4 py-2 rounded-full bg-rose-950/40 text-rose-200 border border-rose-500/30 text-xs flex items-center gap-2">
       <i class="fa-solid fa-volume-high text-pink-400" id="soundIcon"></i>
       <span>Ovoz</span>
     </button>
-    <button id="replayBtn" class="px-4 py-2 rounded-full bg-rose-950/40 text-rose-200 border border-rose-500/30 text-xs flex items-center gap-2">
+    <button id="replayBtn" type="button" class="px-4 py-2 rounded-full bg-rose-950/40 text-rose-200 border border-rose-500/30 text-xs flex items-center gap-2">
       <i class="fa-solid fa-rotate-left"></i>
       <span>Qayta</span>
     </button>
   </footer>
 
   <script>
-    // Standart Bazadagi Parollar (LocalStorageda ham saqlanadi)
-    const DEFAULT_DATA = {
+    // Boshlang'ich Namuna Parollar
+    const INITIAL_DB = {
       "bonu123": {
         name: "Bonu",
         message: "Bonu, men seni sevaman!",
@@ -147,9 +156,18 @@
       }
     };
 
+    // LocalStorage xotirasini boshqarish
     function getDatabase() {
-      const stored = localStorage.getItem('love_surprises_db');
-      return stored ? JSON.parse(stored) : DEFAULT_DATA;
+      try {
+        const stored = localStorage.getItem('love_surprises_db');
+        if (!stored) {
+          localStorage.setItem('love_surprises_db', JSON.stringify(INITIAL_DB));
+          return INITIAL_DB;
+        }
+        return JSON.parse(stored);
+      } catch (e) {
+        return INITIAL_DB;
+      }
     }
 
     function saveToDatabase(db) {
@@ -271,78 +289,117 @@
       wordEntities = UNIQUE_LOVE_TRANSLATIONS.map((item, i) => new WordEntity(item, slots[i]));
     }
 
-    // Dom Elements
-    const passwordOverlay = document.getElementById('passwordOverlay');
-    const passInput = document.getElementById('passInput');
-    const submitPassBtn = document.getElementById('submitPassBtn');
-    const errorMsg = document.getElementById('errorMsg');
+    // DOM Elementlari Yuklanishi Tekshiruvi
+    window.addEventListener('DOMContentLoaded', () => {
+      const passwordOverlay = document.getElementById('passwordOverlay');
+      const passInput = document.getElementById('passInput');
+      const submitPassBtn = document.getElementById('submitPassBtn');
+      const errorMsg = document.getElementById('errorMsg');
 
-    const adminModal = document.getElementById('adminModal');
-    const openAdminBtn = document.getElementById('openAdminBtn');
-    const closeAdminModal = document.getElementById('closeAdminModal');
-    const verifyAdminBtn = document.getElementById('verifyAdminBtn');
-    const adminPassInput = document.getElementById('adminPassInput');
-    const adminAuthBox = document.getElementById('adminAuthBox');
-    const adminFormBox = document.getElementById('adminFormBox');
-    const createSurpriseBtn = document.getElementById('createSurpriseBtn');
-    const resultBox = document.getElementById('resultBox');
-    const generatedPass = document.getElementById('generatedPass');
+      const adminModal = document.getElementById('adminModal');
+      const openAdminBtn = document.getElementById('openAdminBtn');
+      const closeAdminModal = document.getElementById('closeAdminModal');
+      const verifyAdminBtn = document.getElementById('verifyAdminBtn');
+      const adminPassInput = document.getElementById('adminPassInput');
+      const adminAuthBox = document.getElementById('adminAuthBox');
+      const adminFormBox = document.getElementById('adminFormBox');
+      const createSurpriseBtn = document.getElementById('createSurpriseBtn');
+      const resultBox = document.getElementById('resultBox');
+      const generatedPass = document.getElementById('generatedPass');
+      const copyPassBtn = document.getElementById('copyPassBtn');
 
-    // Admin Modali
-    openAdminBtn.addEventListener('click', () => adminModal.classList.remove('hidden'));
-    closeAdminModal.addEventListener('click', () => adminModal.classList.add('hidden'));
+      // Admin Modalini Ochish
+      openAdminBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        adminModal.classList.remove('hidden');
+      });
 
-    verifyAdminBtn.addEventListener('click', () => {
-      if (adminPassInput.value === 'admin123') {
-        adminAuthBox.classList.add('hidden');
-        adminFormBox.classList.remove('hidden');
-      } else {
-        alert('Admin kaliti noto\'g'ri!');
+      // Admin Modalini Yopish
+      closeAdminModal.addEventListener('click', () => {
+        adminModal.classList.add('hidden');
+      });
+
+      // Admin Parolini Tekshirish
+      verifyAdminBtn.addEventListener('click', () => {
+        if (adminPassInput.value.trim() === 'admin123') {
+          adminAuthBox.classList.add('hidden');
+          adminFormBox.classList.remove('hidden');
+        } else {
+          alert('Admin paroli noto\'g\'ri! (Standart: admin123)');
+        }
+      });
+
+      // Yangi Parol va Izhor Yaratish
+      createSurpriseBtn.addEventListener('click', () => {
+        const girlName = document.getElementById('newGirlName').value.trim();
+        const message = document.getElementById('newMessage').value.trim();
+        const sender = document.getElementById('newSenderName').value.trim();
+
+        if (!girlName || !message) {
+          alert('Iltimos, ism va izhorni to\'liq kiriting!');
+          return;
+        }
+
+        // Avtomatik takrorlanmas parol yaratish
+        const generatedKey = girlName.toLowerCase().replace(/[^a-z0-9]/g, '') + Math.floor(100 + Math.random() * 900);
+        
+        const db = getDatabase();
+        db[generatedKey] = {
+          name: girlName,
+          message: message,
+          sender: sender || "Sizni sevguvchi"
+        };
+        saveToDatabase(db);
+
+        generatedPass.textContent = generatedKey;
+        resultBox.classList.remove('hidden');
+      });
+
+      // Parolni Nusxalash
+      copyPassBtn.addEventListener('click', () => {
+        const text = generatedPass.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Parol nusxalandi: ' + text);
+        });
+      });
+
+      // Qiz Kirishi Uchun Parolni Tekshirish
+      function checkPasswordAndStart() {
+        const pass = passInput.value.trim().toLowerCase();
+        const db = getDatabase();
+
+        if (db[pass]) {
+          currentActiveSurprise = db[pass];
+          passwordOverlay.classList.add('opacity-0');
+          setTimeout(() => {
+            passwordOverlay.style.display = 'none';
+            document.getElementById('topHUD').classList.remove('opacity-0');
+            document.getElementById('bottomControls').classList.remove('opacity-0');
+            initAudio();
+            initWordEntities();
+            runNextReveal();
+          }, 800);
+        } else {
+          errorMsg.classList.remove('hidden');
+        }
       }
+
+      submitPassBtn.addEventListener('click', checkPasswordAndStart);
+      passInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') checkPasswordAndStart();
+      });
+
+      // Replay Tugmasi
+      document.getElementById('replayBtn').addEventListener('click', () => {
+        if (revealTimer) clearTimeout(revealTimer);
+        initWordEntities();
+        currentRevealIndex = 0;
+        isCompleted = false;
+        document.getElementById('progressBar').style.width = '0%';
+        document.getElementById('progressPercent').textContent = '0%';
+        runNextReveal();
+      });
     });
-
-    createSurpriseBtn.addEventListener('click', () => {
-      const girlName = document.getElementById('newGirlName').value.trim();
-      const message = document.getElementById('newMessage').value.trim();
-      const sender = document.getElementById('newSenderName').value.trim();
-
-      if (!girlName || !message) {
-        alert('Iltimos, qizning ismi va izhorni kiriting!');
-        return;
-      }
-
-      const newPass = girlName.toLowerCase().replace(/\s+/g, '') + Math.floor(100 + Math.random() * 900);
-      const db = getDatabase();
-      db[newPass] = { name: girlName, message: message, sender: sender || "Sizni sevguvchi" };
-      saveToDatabase(db);
-
-      generatedPass.textContent = newPass;
-      resultBox.classList.remove('hidden');
-    });
-
-    // Parol Tekshirish va Syurprizni Boshlash
-    submitPassBtn.addEventListener('click', checkPasswordAndStart);
-    passInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') checkPasswordAndStart(); });
-
-    function checkPasswordAndStart() {
-      const pass = passInput.value.trim().toLowerCase();
-      const db = getDatabase();
-
-      if (db[pass]) {
-        currentActiveSurprise = db[pass];
-        passwordOverlay.classList.add('opacity-0');
-        setTimeout(() => {
-          passwordOverlay.style.display = 'none';
-          document.getElementById('topHUD').classList.remove('opacity-0');
-          document.getElementById('bottomControls').classList.remove('opacity-0');
-          initAudio();
-          initWordEntities();
-          runNextReveal();
-        }, 800);
-      } else {
-        errorMsg.classList.remove('hidden');
-      }
-    }
 
     function runNextReveal() {
       if (currentRevealIndex < wordEntities.length) {
