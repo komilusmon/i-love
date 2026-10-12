@@ -2,506 +2,935 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Maxsus Sevgi Syurprizi</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Maxsus Syurpriz ❤️</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
   <style>
-    * { box-sizing: border-box; user-select: none; -webkit-tap-highlight-color: transparent; }
-    body { font-family: 'Inter', sans-serif; background-color: #000; color: #ffe4e6; margin: 0; padding: 0; overflow: hidden; }
-    .font-romantic { font-family: 'Dancing Script', cursive; }
-    .font-vibes { font-family: 'Great Vibes', cursive; }
-    .glass-box { background: rgba(15, 5, 15, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(244, 114, 182, 0.3); }
-    @keyframes deepPulse {
-      0%, 100% { box-shadow: 0 0 25px rgba(244, 63, 94, 0.4); transform: scale(1); }
-      50% { box-shadow: 0 0 50px rgba(244, 63, 94, 0.8); transform: scale(1.05); }
+    :root {
+      --bg-color: #030005;
+      --primary-pink: #ff2a6d;
+      --secondary-pink: #ff758c;
+      --neon-glow: rgba(255, 42, 109, 0.7);
     }
-    .pulse-glow-btn { animation: deepPulse 2.4s ease-in-out infinite; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Ambient fon nurlari */
+    .ambient-glow {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 42, 109, 0.12) 0%, rgba(0,0,0,0) 70%);
+      pointer-events: none;
+      z-index: 1;
+      transition: all 1s ease;
+    }
+
+    /* 1. KIRISH OYNASI */
+    #welcome-screen {
+      position: fixed;
+      inset: 0;
+      background: #030005;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: opacity 0.8s ease, visibility 0.8s;
+      padding: 20px;
+    }
+
+    .welcome-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 42, 109, 0.25);
+      box-shadow: 0 0 40px rgba(255, 42, 109, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 35px 28px;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+      animation: floatIn 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes floatIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .card-icon {
+      font-size: 54px;
+      margin-bottom: 15px;
+      display: inline-block;
+      animation: gentleBeat 2s infinite ease-in-out;
+    }
+
+    @keyframes gentleBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    .welcome-card h1 {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff, #ff85a1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .welcome-card p {
+      font-size: 13px;
+      color: #aaa;
+      margin-bottom: 22px;
+      line-height: 1.4;
+    }
+
+    .input-box {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(20, 10, 25, 0.8);
+      border: 1px solid rgba(255, 75, 110, 0.3);
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      outline: none;
+      transition: all 0.3s;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .input-box:focus {
+      border-color: var(--primary-pink);
+      box-shadow: 0 0 18px var(--neon-glow);
+    }
+
+    .btn-glow {
+      width: 100%;
+      padding: 15px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, #ff1744, #d81159);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255, 23, 68, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-glow:active {
+      transform: scale(0.97);
+    }
+
+    /* 2. ASOSIY YURAK ANIMATSIYASI */
+    #stage-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    #heart-canvas-box {
+      position: relative;
+      width: min(90vw, 750px);
+      height: min(85vh, 680px);
+    }
+
+    .word-item {
+      position: absolute;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      white-space: nowrap;
+      font-weight: 600;
+      cursor: default;
+      transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.5s ease;
+      will-change: transform, opacity;
+      letter-spacing: 0.5px;
+    }
+
+    .word-item.show {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.9;
+    }
+
+    /* Oxirgi birlashgan yurak urishi */
+    .heart-pulsing {
+      animation: bigHeartBeat 1.35s infinite ease-in-out !important;
+    }
+
+    @keyframes bigHeartBeat {
+      0% { transform: scale(1); }
+      14% { transform: scale(1.09); }
+      28% { transform: scale(1.02); }
+      42% { transform: scale(1.13); }
+      70% { transform: scale(1); }
+      100% { transform: scale(1); }
+    }
+
+    /* Markazdagi asosiy ism */
+    #center-love {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      text-align: center;
+      z-index: 50;
+      transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+      width: 90%;
+    }
+
+    #center-love.active {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+
+    .main-name {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(38px, 9vw, 68px);
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 15px #ff2a6d, 0 0 35px #ff1744, 0 0 60px #ff0055;
+      line-height: 1.1;
+      margin-bottom: 5px;
+    }
+
+    .main-subtitle {
+      font-size: clamp(14px, 3.5vw, 20px);
+      letter-spacing: 3px;
+      color: #ffccd5;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(255, 42, 109, 0.8);
+    }
+
+    /* Yuqori axborot paneli */
+    #hud-bar {
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 18px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      z-index: 40;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    #hud-bar.show { opacity: 1; }
+
+    .progress-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--secondary-pink);
+    }
+
+    .current-lang {
+      font-size: 13px;
+      color: #fff;
+      font-weight: 400;
+    }
+
+    /* 3. ADMIN PANEL TUGMASI VA MODALI */
+    #admin-toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ff85a1;
+      padding: 10px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 120;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #admin-toggle-btn:hover {
+      background: rgba(255, 42, 109, 0.2);
+      border-color: var(--primary-pink);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    #admin-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(14px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 16px;
+    }
+
+    .admin-card {
+      background: #0d0814;
+      border: 1px solid rgba(255, 42, 109, 0.4);
+      box-shadow: 0 0 50px rgba(255, 42, 109, 0.25);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 440px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 26px;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-size: 22px;
+      background: none;
+      border: none;
+      color: #aaa;
+      cursor: pointer;
+    }
+
+    .close-modal:hover { color: #fff; }
+
+    .admin-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--secondary-pink);
+      margin-bottom: 6px;
+    }
+
+    .admin-desc {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      color: #bbb;
+      margin-bottom: 6px;
+    }
+
+    .secrets-list {
+      margin-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 16px;
+    }
+
+    .secrets-list h4 {
+      font-size: 14px;
+      color: #ddd;
+      margin-bottom: 10px;
+    }
+
+    .secret-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .secret-row-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .secret-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .btn-action:hover { background: var(--primary-pink); }
+
+    /* Partikllar */
+    .particle {
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+      background: #ff2a6d;
+      animation: flyParticle 3s linear infinite;
+    }
+
+    @keyframes flyParticle {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      100% { transform: translateY(-120px) scale(0); opacity: 0; }
+    }
   </style>
 </head>
-<body class="w-screen h-screen relative bg-black overflow-hidden">
+<body>
 
-  <!-- Interaktiv Canvas -->
-  <canvas id="heartCanvas" class="absolute inset-0 w-full h-full block z-0"></canvas>
+  <div class="ambient-glow"></div>
 
-  <!-- 1. PAROL KIRITISH OVERLAY -->
-  <div id="passwordOverlay" class="absolute inset-0 bg-black z-40 flex flex-col items-center justify-center p-4 text-center">
-    <div class="glass-box p-8 rounded-3xl max-w-sm w-full border border-rose-500/30 shadow-[0_0_50px_rgba(244,63,94,0.3)]">
-      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-rose-950/50 border border-rose-500/40 text-rose-400 text-2xl shadow-lg">
-        <i class="fa-solid fa-lock animate-pulse"></i>
-      </div>
-      <h2 class="text-2xl font-vibes text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-rose-400 mb-2">
-        Sizga Maxsus Xabar Bor
-      </h2>
-      <p class="text-xs text-rose-200/70 mb-6">
-        Davom etish uchun sizga berilgan maxsus parolni kiriting:
-      </p>
-
-      <input type="text" id="passInput" placeholder="Parolni kiriting..." class="w-full px-4 py-3 rounded-xl bg-pink-950/40 border border-pink-500/40 text-rose-100 placeholder-pink-300/30 text-center tracking-widest focus:outline-none focus:ring-2 focus:ring-rose-400 text-base mb-3">
+  <!-- 1. PAROL BILAN OCHISH OYNASI -->
+  <div id="welcome-screen">
+    <div class="welcome-card">
+      <div class="card-icon">💌</div>
+      <h1>Maxsus Syurpriz</h1>
+      <p>Siz uchun tayyorlangan maxfiy xabarni ochish uchun parolni kiriting</p>
       
-      <p id="errorMsg" class="text-xs text-red-400 hidden mb-3 font-semibold">Parol noto'g'ri! Qayta urinib ko'ring.</p>
-
-      <button id="submitPassBtn" class="w-full py-3 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 text-white font-medium tracking-wider shadow-lg hover:brightness-110 active:scale-95 transition-all">
-        Syurprizni Oching <i class="fa-solid fa-heart ml-1"></i>
-      </button>
-
-      <!-- Admin Panel Tugmasi -->
-      <button id="openAdminBtn" type="button" class="mt-6 text-xs text-rose-300/50 hover:text-rose-300 flex items-center justify-center gap-1.5 mx-auto transition-colors cursor-pointer py-1 px-3 rounded-lg hover:bg-rose-950/30">
-        <i class="fa-solid fa-gear text-pink-400"></i> Admin Panel
-      </button>
+      <input type="text" id="target-pass" class="input-box" placeholder="Parolni kiriting..." autocomplete="off">
+      <button id="btn-start" class="btn-glow">Syurprizni Oching ❤️</button>
+      <div id="err-msg" style="color: #ff4d6d; font-size: 12px; margin-top: 10px; display: none;"></div>
     </div>
   </div>
 
-  <!-- 2. ADMIN PANEL MODAL -->
-  <div id="adminModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="glass-box w-full max-w-md p-6 rounded-3xl border border-pink-400/40 shadow-2xl">
-      <div class="flex justify-between items-center mb-4 border-b border-rose-500/20 pb-3">
-        <h3 class="text-lg font-romantic font-bold text-pink-300 flex items-center gap-2">
-          <i class="fa-solid fa-user-gear text-rose-400"></i> Admin Panel
-        </h3>
-        <button id="closeAdminModal" type="button" class="text-gray-400 hover:text-white p-1 text-xl">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+  <!-- 2. ANIMATSIYA SAHNASI -->
+  <div id="stage-container">
+    <div id="hud-bar">
+      <span class="progress-text" id="hud-count">0 / 83</span>
+      <span style="color: #555;">|</span>
+      <span class="current-lang" id="hud-lang">Yuklanmoqda...</span>
+    </div>
+
+    <div id="heart-canvas-box"></div>
+
+    <div id="center-love">
+      <div class="main-name" id="final-name">Ism</div>
+      <div class="main-subtitle">Men Seni Sevaman</div>
+    </div>
+  </div>
+
+  <!-- 3. ADMIN PANEL TUGMASI (OSON KIRISH) -->
+  <button id="admin-toggle-btn">
+    <span>⚙️</span>
+    <span>Admin / Yangi qo'shish</span>
+  </button>
+
+  <!-- 4. ADMIN MODALI -->
+  <div id="admin-modal">
+    <div class="admin-card">
+      <button class="close-modal" id="btn-close-admin">&times;</button>
+      <div class="admin-title">Admin Boshqaruvi 💖</div>
+      <div class="admin-desc">Sevgilingiz uchun maxfiy parol va ismini kiritib saqlang:</div>
+
+      <div class="form-group">
+        <label>Sevgan insoningiz ismi:</label>
+        <input type="text" id="admin-name" class="input-box" style="margin-bottom:0;" placeholder="Masalan: Madinam">
       </div>
 
-      <!-- Admin Kaliti Kirish Qismi -->
-      <div id="adminAuthBox" class="space-y-3">
-        <p class="text-xs text-rose-200/80">Admin panelga kirish uchun maxsus parolni kiriting (Standart parol: <code class="text-pink-300 bg-pink-950 px-1 rounded">?</code>):</p>
-        <input type="password" id="adminPassInput" placeholder="Admin kaliti..." class="w-full px-4 py-2.5 rounded-xl bg-pink-950/40 border border-pink-500/40 text-rose-100 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
-        <button id="verifyAdminBtn" type="button" class="w-full py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-sm font-semibold transition-all">
-          Kirish
-        </button>
+      <div class="form-group">
+        <label>Unga aytiladigan parol:</label>
+        <input type="text" id="admin-pass" class="input-box" style="margin-bottom:0;" placeholder="Masalan: 777 yoki sevgim">
       </div>
 
-      <!-- Admin Parol Yaratish Formasi -->
-      <div id="adminFormBox" class="hidden space-y-3">
-        <div>
-          <label class="block text-xs text-rose-200/80 mb-1">Qizning ismi:</label>
-          <input type="text" id="newGirlName" placeholder="Bonu" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100 focus:outline-none focus:ring-1 focus:ring-rose-400">
-        </div>
-        <div>
-          <label class="block text-xs text-rose-200/80 mb-1">Maxsus Izhor:</label>
-          <input type="text" id="newMessage" placeholder="Bonu, men seni sevaman!" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100 focus:outline-none focus:ring-1 focus:ring-rose-400">
-        </div>
-        <div>
-          <label class="block text-xs text-rose-200/80 mb-1">Sizning ismingiz:</label>
-          <input type="text" id="newSenderName" placeholder="Sizni sevguvchi Anvar" class="w-full px-3 py-2 rounded-lg bg-pink-950/40 border border-pink-500/40 text-sm text-rose-100 focus:outline-none focus:ring-1 focus:ring-rose-400">
-        </div>
-        
-        <button id="createSurpriseBtn" type="button" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 text-white font-semibold text-sm hover:brightness-110 transition-all shadow-md mt-2">
-          Parol Yaratish va Saqlash
-        </button>
+      <button id="btn-save-admin" class="btn-glow" style="margin-top: 10px;">Bazaga Saqlash 💾</button>
+      
+      <div id="admin-alert" style="margin-top: 10px; font-size: 12px; text-align: center; display: none;"></div>
 
-        <!-- Yaratilgan Parol Natijasi -->
-        <div id="resultBox" class="hidden mt-3 p-3 rounded-xl bg-pink-950/80 border border-pink-400/50 text-xs text-left">
-          <p class="text-pink-200 font-bold mb-1 flex items-center gap-1">
-            <i class="fa-solid fa-circle-check text-green-400"></i> Muvaffaqiyatli Saqlandi!
-          </p>
-          <p class="text-gray-300">Qizga yuboriladigan Parol:</p>
-          <div class="flex items-center gap-2 mt-1">
-            <span id="generatedPass" class="text-rose-300 font-mono text-base font-bold bg-black/60 px-3 py-1 rounded border border-rose-500/30 flex-1 text-center"></span>
-            <button id="copyPassBtn" type="button" class="px-3 py-1 rounded bg-rose-800 text-white text-xs hover:bg-rose-700">Nusxalash</button>
-          </div>
-        </div>
+      <div class="secrets-list">
+        <h4>Saqlangan parollar ro'yxati:</h4>
+        <div id="secrets-items-container">Yuklanmoqda...</div>
       </div>
     </div>
   </div>
 
-  <!-- HUD Progress Header -->
-  <header id="topHUD" class="absolute top-4 left-1/2 -translate-x-1/2 z-20 w-11/12 max-w-xl text-center pointer-events-none opacity-0 transition-opacity duration-700">
-    <div class="glass-box rounded-full px-5 py-2.5 flex items-center justify-between shadow-2xl">
-      <div class="flex items-center gap-2">
-        <span class="text-rose-400 text-sm animate-pulse"><i class="fa-solid fa-heart-pulse"></i></span>
-        <span id="currentLangBadge" class="text-xs sm:text-sm font-romantic font-bold text-pink-200">
-          Tayyorlanmoqda...
-        </span>
-      </div>
-      <div class="flex items-center gap-3">
-        <div class="w-24 sm:w-36 h-2 bg-rose-950/80 rounded-full overflow-hidden border border-rose-500/30">
-          <div id="progressBar" class="h-full bg-gradient-to-r from-pink-500 to-rose-400 w-0 transition-all duration-300"></div>
-        </div>
-        <span id="progressPercent" class="text-xs font-mono font-bold text-rose-300">0%</span>
-      </div>
-    </div>
-  </header>
+  <!-- FIREBASE VA ANIMATSIYA MANTIQI -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, set, get, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
-  <!-- Control Controls -->
-  <footer id="bottomControls" class="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-2 rounded-full glass-box opacity-0 transition-opacity duration-700">
-    <button id="soundToggleBtn" type="button" class="px-4 py-2 rounded-full bg-rose-950/40 text-rose-200 border border-rose-500/30 text-xs flex items-center gap-2">
-      <i class="fa-solid fa-volume-high text-pink-400" id="soundIcon"></i>
-      <span>Ovoz</span>
-    </button>
-    <button id="replayBtn" type="button" class="px-4 py-2 rounded-full bg-rose-950/40 text-rose-200 border border-rose-500/30 text-xs flex items-center gap-2">
-      <i class="fa-solid fa-rotate-left"></i>
-      <span>Qayta</span>
-    </button>
-  </footer>
-
-  <script>
-    // Boshlang'ich Namuna Parollar
-    const INITIAL_DB = {
-      "bonu123": {
-        name: "Bonu",
-        message: "Bonu, men seni sevaman!",
-        sender: "Sizni sevguvchi Anvar"
-      },
-      "sevgilim": {
-        name: "Sevgilim",
-        message: "Siz mening hayotim mazmunisiz!",
-        sender: "Sizni sevadigan insondan"
-      }
+    // 1. Siz taqdim etgan Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyDUjsIRDHIKC2iRHs4LDkh9Rmof8QUXpPI",
+      authDomain: "i-love-f77cb.firebaseapp.com",
+      databaseURL: "https://i-love-f77cb-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "i-love-f77cb",
+      storageBucket: "i-love-f77cb.firebasestorage.app",
+      messagingSenderId: "774135743977",
+      appId: "1:774135743977:web:e28f082e4631e28f8cf778",
+      measurementId: "G-KX7WHKQ9TL"
     };
 
-    function getDatabase() {
-      try {
-        const stored = localStorage.getItem('love_surprises_db');
-        if (!stored) {
-          localStorage.setItem('love_surprises_db', JSON.stringify(INITIAL_DB));
-          return INITIAL_DB;
-        }
-        return JSON.parse(stored);
-      } catch (e) {
-        return INITIAL_DB;
-      }
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Xavfsiz baza kaliti yasash
+    function cleanKey(str) {
+      return encodeURIComponent(str.trim().toLowerCase()).replace(/[.%$#\[\]]/g, "_");
     }
 
-    function saveToDatabase(db) {
-      localStorage.setItem('love_surprises_db', JSON.stringify(db));
-    }
-
-    // 80 dan ortiq kengaytirilgan tillar ro'yxati
-    const UNIQUE_LOVE_TRANSLATIONS = [
-      { text: "Men seni sevaman", lang: "O'zbekcha" },
-      { text: "I love you", lang: "Inglizcha" },
-      { text: "Я тебя люблю", lang: "Ruscha" },
-      { text: "Seni seviyorum", lang: "Turkcha" },
-      { text: "Je t'aime", lang: "Fransuzcha" },
-      { text: "Te amo", lang: "Ispancha" },
-      { text: "Ti amo", lang: "Italyancha" },
-      { text: "Ich liebe dich", lang: "Nemischa" },
-      { text: "愛してる", lang: "Yaponcha" },
-      { text: "사랑해", lang: "Koreyscha" },
-      { text: "我爱你", lang: "Xitoycha" },
-      { text: "أحبك", lang: "Arabcha" },
-      { text: "دوستت دارم", lang: "Forscha" },
-      { text: "Eu te amo", lang: "Portugalcha" },
-      { text: "Σ' αγαπώ", lang: "Yunoncha" },
-      { text: "Ik hou van jou", lang: "Gollandcha" },
-      { text: "Kocham cię", lang: "Polyakcha" },
-      { text: "Jag älskar dig", lang: "Shvedcha" },
-      { text: "Jeg elsker deg", lang: "Norvegcha" },
-      { text: "Minä rakastan sinua", lang: "Fincha" },
-      { text: "Я тебе кохаю", lang: "Ukraincha" },
-      { text: "Mən səni sevirəm", lang: "Ozarbayjoncha" },
-      { text: "Мен сені сүйемін", lang: "Qozoqcha" },
-      { text: "Мен сени сүйөм", lang: "Qirg'izcha" },
-      { text: "Ман туро дӯст медорам", lang: "Tojikcha" },
-      { text: "Szeretlek", lang: "Vengercha" },
-      { text: "Miluji tě", lang: "Chexcha" },
-      { text: "Te iubesc", lang: "Rumincha" },
-      { text: "Обичам те", lang: "Bolgarcha" },
-      { text: "Volim te", lang: "Xorvatcha" },
-      { text: "Aku cinta kamu", lang: "Indonezcha" },
-      { text: "Anh yêu em", lang: "Vyetnamcha" },
-      { text: "ฉันรักเธอ", lang: "Taycha" },
-      { text: "Mahal kita", lang: "Filipincha" },
-      { text: "მიყვარხარ", lang: "Gruzincha" },
-      { text: "Ես քեզ սիրում եմ", lang: "Armancha" },
-      { text: "אני אוהב אותך", lang: "Ibroniycha" },
-      { text: "T'estimo", lang: "Katalancha" },
-      { text: "Aš tave myliu", lang: "Litovcha" },
-      { text: "Es tevi mīlu", lang: "Latishcha" },
-      { text: "Ma armastan sind", lang: "Estoncha" },
-      { text: "Ek het jou lief", lang: "Afrikaans" },
-      { text: "Aloha au iā 'oe", lang: "Gavayi" },
-      { text: "Ngiyakuthanda", lang: "Zulucha" },
-      { text: "Ndiyakuthanda", lang: "Xosacha" },
-      { text: "Yuragimning sultoni", lang: "Romantika" },
-      { text: "Sen mening borlig'imsan", lang: "Izhor" },
-      { text: "Hayotim mazmunisan", lang: "Muhabbat" }
+    // 2. Takrorlanmas 83 ta til ro'yxati
+    const LOVE_WORDS = [
+      { lang: "O'zbekcha", text: "Men seni sevaman" },
+      { lang: "Inglizcha", text: "I love you" },
+      { lang: "Ruscha", text: "Я тебя люблю" },
+      { lang: "Turkcha", text: "Seni seviyorum" },
+      { lang: "Fransuzcha", text: "Je t'aime" },
+      { lang: "Ispancha", text: "Te amo" },
+      { lang: "Nemischa", text: "Ich liebe dich" },
+      { lang: "Italyancha", text: "Ti amo" },
+      { lang: "Portugalcha", text: "Eu te amo" },
+      { lang: "Yaponcha", text: "愛してる" },
+      { lang: "Koreyscha", text: "사랑해" },
+      { lang: "Xitoycha", text: "我爱你" },
+      { lang: "Arabcha", text: "أحبك" },
+      { lang: "Forscha", text: "دوستت دارم" },
+      { lang: "Hindcha", text: "मैं तुमसे प्यार करता हूँ" },
+      { lang: "Ozarbayjoncha", text: "Səni sevirəm" },
+      { lang: "Qozoqcha", text: "Мен сені сүйемін" },
+      { lang: "Qirg'izcha", text: "Мен сени сүйөм" },
+      { lang: "Tojikcha", text: "Ман туро дӯст медорам" },
+      { lang: "Turkmancha", text: "Men seni söýýärin" },
+      { lang: "Uyg'urcha", text: "Män seni söyümän" },
+      { lang: "Tatarcha", text: "Мин сине яратам" },
+      { lang: "Ukraincha", text: "Я тебе кохаю" },
+      { lang: "Belaruscha", text: "Я цябе кахаю" },
+      { lang: "Polyakcha", text: "Kocham cię" },
+      { lang: "Chexcha", text: "Miluji tě" },
+      { lang: "Slovakcha", text: "Ľúbim ťa" },
+      { lang: "Bolgarcha", text: "Обичам те" },
+      { lang: "Serbcha", text: "Волим те" },
+      { lang: "Xorvatcha", text: "Volim te" },
+      { lang: "Slovencha", text: "Ljubim te" },
+      { lang: "Makedoncha", text: "Те сакам" },
+      { lang: "Yunoncha", text: "Σ' αγαπώ" },
+      { lang: "Gollandcha", text: "Ik hou van jou" },
+      { lang: "Shvedcha", text: "Jag älskar dig" },
+      { lang: "Norvegcha", text: "Jeg elsker deg" },
+      { lang: "Daniyacha", text: "Jeg elsker dig" },
+      { lang: "Fincha", text: "Minä rakastan sinua" },
+      { lang: "Islandcha", text: "Ég elska þig" },
+      { lang: "Irlandcha", text: "Tá grá agam duit" },
+      { lang: "Vengercha", text: "Szeretlek" },
+      { lang: "Rumincha", text: "Te iubesc" },
+      { lang: "Albancha", text: "Të dua" },
+      { lang: "Estoncha", text: "Ma armastan sind" },
+      { lang: "Latishcha", text: "Es tevi mīlu" },
+      { lang: "Litovcha", text: "Aš tave myliu" },
+      { lang: "Maltacha", text: "Inħobbok" },
+      { lang: "Gurjicha", text: "მიყვარხარ" },
+      { lang: "Armancha", text: "Ես քեզ սիրում եմ" },
+      { lang: "Ibroniycha", text: "אני אוהב אותך" },
+      { lang: "Vyetnamcha", text: "Anh yêu em" },
+      { lang: "Taycha", text: "ฉันรักเธอ" },
+      { lang: "Indonezcha", text: "Aku cinta kamu" },
+      { lang: "Malaycha", text: "Saya cintakan awak" },
+      { lang: "Filippincha", text: "Mahal kita" },
+      { lang: "Bengalcha", text: "আমি তোমাকে ভালোবাসি" },
+      { lang: "Panjobcha", text: "ਮੈਂ ਤੈਨੂੰ ਪਿਆਰ ਕਰਦਾ ਹਾਂ" },
+      { lang: "Marathicha", text: "माझे तुझ्यावर प्रेम आहे" },
+      { lang: "Gujaratcha", text: "હું તને પ્રેમ કરું છું" },
+      { lang: "Tamilcha", text: "நான் உன்னை காதலிக்கிறேன்" },
+      { lang: "Telugucha", text: "నేను నిన్ను ప్రేమిస్తున్నాను" },
+      { lang: "Kannadacha", text: "ನಾನು ನಿನ್ನನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ" },
+      { lang: "Malayalamcha", text: "ഞാൻ നിന്നെ സ്നേഹിക്കുന്നു" },
+      { lang: "Sinhalcha", text: "මම ඔයාට ආදරෙයි" },
+      { lang: "Birmacha", text: "ချစ်တယ်" },
+      { lang: "Khmercha", text: "ខ្ញុំស្រឡាញ់អ្នក" },
+      { lang: "Laocha", text: "ຂ້ອຍຮັກເຈົ້າ" },
+      { lang: "Mo'g'ulcha", text: "Би чамд хайртай" },
+      { lang: "Nepalcha", text: "म तिमीलाई माया गर्छु" },
+      { lang: "Suaxili", text: "Nakupenda" },
+      { lang: "Amxarcha", text: "እወድሻለሁ" },
+      { lang: "Yorubacha", text: "Mo nifẹ rẹ" },
+      { lang: "Zulucha", text: "Ngiyakuthanda" },
+      { lang: "Afrikaans", text: "Ek het jou lief" },
+      { lang: "Gavaycha", text: "Aloha wau iā 'oe" },
+      { lang: "Maoricha", text: "Kei te aroha au ki a koe" },
+      { lang: "Esperanto", text: "Mi amas vin" },
+      { lang: "Lotincha", text: "Te amo" },
+      { lang: "Katalancha", text: "T'estimo" },
+      { lang: "Baskcha", text: "Maite zaitut" },
+      { lang: "Valliycha", text: "Rwy'n dy garu di" },
+      { lang: "Kurdcha", text: "Ez te hezdikhem" },
+      { lang: "Somalicha", text: "Waan ku jecelahay" }
     ];
 
-    const canvas = document.getElementById('heartCanvas');
-    const ctx = canvas.getContext('2d');
-    let width = 0, height = 0, heartScale = 1;
-    let currentActiveSurprise = null;
-
-    function resizeCanvas() {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width * window.devicePixelRatio;
-      canvas.height = height * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-      const minDim = Math.min(width, height);
-      heartScale = minDim < 450 ? minDim / 45 : minDim / 40;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    // Yurak (Cardioid) formulasi
-    function getCardioidPoint(t, scale) {
-      const x = 16 * Math.pow(Math.sin(t), 3);
-      const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
-      return { x: x * scale, y: y * scale };
-    }
-
-    // So'zlar bir-birining ustiga chiqib qolmasligi uchun tarqoq va tartibli joylar generatsiyasi
-    function generateHeartSlots(count, scale) {
-      const slots = [];
-      const perimeterCount = Math.floor(count * 0.4);
-      
-      // Chegara bo'ylab joylashuv
-      for (let i = 0; i < perimeterCount; i++) {
-        const t = (i / perimeterCount) * Math.PI * 2;
-        const pt = getCardioidPoint(t, scale);
-        slots.push({ x: pt.x * 0.85, y: pt.y * 0.85 });
-      }
-
-      // Ichki qismni bir-biriga tegmaydigan qilib to'ldirish
-      let attempts = 0;
-      while (slots.length < count && attempts < 2000) {
-        attempts++;
-        const t = Math.random() * Math.PI * 2;
-        const r = Math.sqrt(Math.random()) * 0.72;
-        const edge = getCardioidPoint(t, scale);
-        const candX = edge.x * r;
-        const candY = edge.y * r;
-
-        let tooClose = false;
-        for (let s of slots) {
-          if (Math.hypot(s.x - candX, s.y - candY) < scale * 1.3) {
-            tooClose = true;
-            break;
-          }
-        }
-        if (!tooClose) {
-          slots.push({ x: candX, y: candY });
-        }
-      }
-      return slots;
-    }
-
-    let audioCtx = null, isSoundMuted = false;
-    function initAudio() {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    // 3. Ovoz sintezatori (Web Audio API - tashqi faylsiz)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    
+    function playChime(freq = 440) {
       if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.4);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.4);
     }
 
-    function playWordChime(index) {
-      if (isSoundMuted || !audioCtx) return;
-      try {
-        const freqs = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99];
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.frequency.setValueAtTime(freqs[index % freqs.length], audioCtx.currentTime);
-        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.4);
-        osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.4);
-      } catch (e) {}
+    function playHeartBeatSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(70, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(35, audioCtx.currentTime + 0.25);
+      gain.gain.setValueAtTime(0.35, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.25);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.25);
     }
 
-    class WordEntity {
-      constructor(data, slot, index) {
-        this.text = data.text;
-        this.lang = data.lang;
-        this.slotX = slot.x; 
-        this.slotY = slot.y;
-        this.visible = false;
-        this.opacity = 0;
-        this.scaleAnim = 0;
-        this.fontSize = 10 + Math.random() * 3.5;
-        this.hue = 330 + (index * 4) % 30;
+    // 4. Kardiroid Yurak koordinatalarini hisoblash
+    function generateHeartPoints(total) {
+      const points = [];
+      const outerCount = Math.floor(total * 0.58); // Tashqi qirrasi
+      const innerCount = total - outerCount;       // Ichki to'ldiruvchi qismi
+
+      // Tashqi qirra
+      for (let i = 0; i < outerCount; i++) {
+        const t = (i / outerCount) * Math.PI * 2;
+        const x = 16 * Math.pow(Math.sin(t), 3);
+        const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+        points.push({ x, y, scale: 1 });
       }
-      reveal() { 
-        this.visible = true; 
-      }
-      update() { 
-        if (this.visible && this.opacity < 1) {
-          this.opacity += 0.12;
-          this.scaleAnim = Math.min(1, this.scaleAnim + 0.15);
-        }
-      }
-      draw(ctx, centerX, centerY, scale) {
-        if (!this.visible) return;
-        ctx.save();
-        ctx.translate(centerX + this.slotX * scale, centerY + this.slotY * scale);
-        ctx.font = `600 ${this.fontSize}px 'Inter', sans-serif`;
-        ctx.textAlign = 'center'; 
-        ctx.textBaseline = 'middle';
-        ctx.fillStyle = `hsla(${this.hue}, 90%, 85%, ${this.opacity})`;
-        ctx.fillText(this.text, 0, 0);
-        ctx.restore();
-      }
-    }
 
-    const totalWords = UNIQUE_LOVE_TRANSLATIONS.length;
-    let wordEntities = [];
-    let isCompleted = false, currentRevealIndex = 0, revealTimer = null;
-
-    function initWordEntities() {
-      const slots = generateHeartSlots(totalWords, heartScale);
-      wordEntities = UNIQUE_LOVE_TRANSLATIONS.map((item, i) => new WordEntity(item, slots[i], i));
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const passwordOverlay = document.getElementById('passwordOverlay');
-      const passInput = document.getElementById('passInput');
-      const submitPassBtn = document.getElementById('submitPassBtn');
-      const errorMsg = document.getElementById('errorMsg');
-
-      const adminModal = document.getElementById('adminModal');
-      const openAdminBtn = document.getElementById('openAdminBtn');
-      const closeAdminModal = document.getElementById('closeAdminModal');
-      const verifyAdminBtn = document.getElementById('verifyAdminBtn');
-      const adminPassInput = document.getElementById('adminPassInput');
-      const adminAuthBox = document.getElementById('adminAuthBox');
-      const adminFormBox = document.getElementById('adminFormBox');
-      const createSurpriseBtn = document.getElementById('createSurpriseBtn');
-      const resultBox = document.getElementById('resultBox');
-      const generatedPass = document.getElementById('generatedPass');
-      const copyPassBtn = document.getElementById('copyPassBtn');
-
-      openAdminBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        adminModal.classList.remove('hidden');
-      });
-
-      closeAdminModal.addEventListener('click', () => adminModal.classList.add('hidden'));
-
-      verifyAdminBtn.addEventListener('click', () => {
-        if (adminPassInput.value.trim() === 'admin123') {
-          adminAuthBox.classList.add('hidden');
-          adminFormBox.classList.remove('hidden');
-        } else {
-          alert('Admin paroli noto\'g\'ri! (Standart: admin123)');
+      // Ichki qatlamlar (Yurak ichini to'ldirish)
+      const innerScales = [0.78, 0.55, 0.32];
+      let allocated = 0;
+      innerScales.forEach((scale, layerIdx) => {
+        const countThisLayer = Math.floor(innerCount / innerScales.length) + (layerIdx === 0 ? innerCount % innerScales.length : 0);
+        for (let i = 0; i < countThisLayer; i++) {
+          const t = (i / countThisLayer) * Math.PI * 2;
+          const x = 16 * Math.pow(Math.sin(t), 3) * scale;
+          const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t)) * scale;
+          points.push({ x, y, scale });
         }
       });
 
-      createSurpriseBtn.addEventListener('click', () => {
-        const girlName = document.getElementById('newGirlName').value.trim();
-        const message = document.getElementById('newMessage').value.trim();
-        const sender = document.getElementById('newSenderName').value.trim();
+      // Tasodifiy tartibda chiqishi uchun aralashtiramiz
+      return points.sort(() => Math.random() - 0.5);
+    }
 
-        if (!girlName || !message) {
-          alert('Iltimos, ism va izhorni to\'liq kiriting!');
+    // Ranglar palitrasi
+    const COLOR_PALETTE = [
+      '#ff2a6d', '#ff758c', '#ff5400', '#f72585', 
+      '#ff99c8', '#e0aaff', '#ffccd5', '#f3c68f', '#ff4d6d'
+    ];
+
+    // 5. Animatsiya boshqaruvi
+    const canvasBox = document.getElementById("heart-canvas-box");
+    const hudBar = document.getElementById("hud-bar");
+    const hudCount = document.getElementById("hud-count");
+    const hudLang = document.getElementById("hud-lang");
+    const centerLove = document.getElementById("center-love");
+    const finalNameEl = document.getElementById("final-name");
+
+    function startHeartAnimation(name) {
+      finalNameEl.textContent = name;
+      hudBar.classList.add("show");
+
+      const boxWidth = canvasBox.clientWidth;
+      const boxHeight = canvasBox.clientHeight;
+      const points = generateHeartPoints(LOVE_WORDS.length);
+
+      // Masshtab koeffitsiyenti
+      const scaleX = boxWidth / 38;
+      const scaleY = boxHeight / 38;
+
+      canvasBox.innerHTML = '';
+      const elements = [];
+
+      LOVE_WORDS.forEach((item, index) => {
+        const pt = points[index];
+        const span = document.createElement("div");
+        span.className = "word-item";
+        span.textContent = item.text;
+
+        const posX = (boxWidth / 2) + (pt.x * scaleX);
+        const posY = (boxHeight / 2) + (pt.y * scaleY);
+
+        span.style.left = `${posX}px`;
+        span.style.top = `${posY}px`;
+
+        const randomColor = COLOR_PALETTE[index % COLOR_PALETTE.length];
+        span.style.color = randomColor;
+        span.style.textShadow = `0 0 10px ${randomColor}aa`;
+        
+        // O'lchami ekranga qarab
+        const fontSize = pt.scale < 0.6 ? 'clamp(9px, 2vw, 12px)' : 'clamp(11px, 2.5vw, 15px)';
+        span.style.fontSize = fontSize;
+
+        canvasBox.appendChild(span);
+        elements.push({ el: span, data: item });
+      });
+
+      // So'zlarni ketma-ket chiqarish
+      let currentIndex = 0;
+      const intervalTime = 160; // Har bir so'z chiqish tezligi (ms)
+
+      const timer = setInterval(() => {
+        if (currentIndex >= elements.length) {
+          clearInterval(timer);
+          finishAnimation();
           return;
         }
 
-        const generatedKey = girlName.toLowerCase().replace(/[^a-z0-9]/g, '') + Math.floor(100 + Math.random() * 900);
-        const db = getDatabase();
-        db[generatedKey] = { name: girlName, message: message, sender: sender || "Sizni sevguvchi" };
-        saveToDatabase(db);
+        const current = elements[currentIndex];
+        current.el.classList.add("show");
+        
+        // Progress va til nomi
+        hudCount.textContent = `${currentIndex + 1} / ${LOVE_WORDS.length}`;
+        hudLang.textContent = `${current.data.lang}: "${current.data.text}"`;
 
-        generatedPass.textContent = generatedKey;
-        resultBox.classList.remove('hidden');
-      });
+        // Musiqa ohangi (Pentatonik chastotalar)
+        const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25];
+        playChime(notes[currentIndex % notes.length]);
 
-      copyPassBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(generatedPass.textContent).then(() => {
-          alert('Parol nusxalandi: ' + generatedPass.textContent);
-        });
-      });
+        currentIndex++;
+      }, intervalTime);
 
-      function checkPasswordAndStart() {
-        const pass = passInput.value.trim().toLowerCase();
-        const db = getDatabase();
+      // Yakuniy yurak urishi va portlash effekti
+      function finishAnimation() {
+        hudLang.textContent = "Barcha tillarda bitta yurak ❤️";
+        centerLove.classList.add("active");
 
-        if (db[pass]) {
-          currentActiveSurprise = db[pass];
-          passwordOverlay.classList.add('opacity-0');
-          setTimeout(() => {
-            passwordOverlay.style.display = 'none';
-            document.getElementById('topHUD').classList.remove('opacity-0');
-            document.getElementById('bottomControls').classList.remove('opacity-0');
-            initAudio();
-            initWordEntities();
-            runNextReveal();
-          }, 800);
-        } else {
-          errorMsg.classList.remove('hidden');
-        }
+        // Butun yurakni birlashtirib urish
+        canvasBox.classList.add("heart-pulsing");
+
+        // Doimiy yurak urish ritmi
+        setInterval(() => {
+          playHeartBeatSound();
+          setTimeout(playHeartBeatSound, 240);
+        }, 1350);
+
+        // Uchqun zarralarini chiqarish
+        setInterval(createFloatingSparkle, 300);
+      }
+    }
+
+    function createFloatingSparkle() {
+      const sparkle = document.createElement("div");
+      sparkle.className = "particle";
+      const size = Math.random() * 5 + 3;
+      sparkle.style.width = `${size}px`;
+      sparkle.style.height = `${size}px`;
+      sparkle.style.left = `${Math.random() * window.innerWidth}px`;
+      sparkle.style.top = `${window.innerHeight - 20}px`;
+      sparkle.style.background = COLOR_PALETTE[Math.floor(Math.random() * COLOR_PALETTE.length)];
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 3000);
+    }
+
+    // 6. Syurprizni ochish (Parolni tekshirish)
+    async function checkPasswordAndStart(pass) {
+      const errMsg = document.getElementById("err-msg");
+      errMsg.style.display = "none";
+
+      if (!pass) {
+        errMsg.textContent = "Iltimos, parolni kiriting!";
+        errMsg.style.display = "block";
+        return;
       }
 
-      submitPassBtn.addEventListener('click', checkPasswordAndStart);
-      passInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') checkPasswordAndStart(); });
+      try {
+        const key = cleanKey(pass);
+        const snapshot = await get(ref(db, "secrets/" + key));
 
-      document.getElementById('replayBtn').addEventListener('click', () => {
-        if (revealTimer) clearTimeout(revealTimer);
-        initWordEntities();
-        currentRevealIndex = 0;
-        isCompleted = false;
-        document.getElementById('progressBar').style.width = '0%';
-        document.getElementById('progressPercent').textContent = '0%';
-        runNextReveal();
-      });
+        if (snapshot.exists()) {
+          const secretData = snapshot.val();
+          document.getElementById("welcome-screen").style.opacity = "0";
+          setTimeout(() => {
+            document.getElementById("welcome-screen").style.display = "none";
+          }, 800);
+          startHeartAnimation(secretData.name);
+        } else {
+          errMsg.textContent = "Bunday parol topilmadi! Parolni tekshirib qayta kiriting.";
+          errMsg.style.display = "block";
+        }
+      } catch (e) {
+        errMsg.textContent = "Ulanishda xatolik: " + e.message;
+        errMsg.style.display = "block";
+      }
+    }
+
+    document.getElementById("btn-start").addEventListener("click", () => {
+      const val = document.getElementById("target-pass").value;
+      checkPasswordAndStart(val);
     });
 
-    function runNextReveal() {
-      if (currentRevealIndex < wordEntities.length) {
-        const item = wordEntities[currentRevealIndex];
-        item.reveal();
-        document.getElementById('currentLangBadge').textContent = `${item.lang}: "${item.text}"`;
-        const pct = Math.round(((currentRevealIndex + 1) / totalWords) * 100);
-        document.getElementById('progressBar').style.width = `${pct}%`;
-        document.getElementById('progressPercent').textContent = `${pct}%`;
+    document.getElementById("target-pass").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        checkPasswordAndStart(e.target.value);
+      }
+    });
 
-        playWordChime(currentRevealIndex);
-        currentRevealIndex++;
-        revealTimer = setTimeout(runNextReveal, 280);
-      } else {
-        isCompleted = true;
-        document.getElementById('currentLangBadge').innerHTML = `<span class="text-rose-300 font-bold">YURAK SHAKLLANDI! ❤</span>`;
+    // URL orqali to'g'ridan-to'g'ri ochish (Masalan: sayt.uz/?p=parol)
+    window.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const directPass = urlParams.get("p") || urlParams.get("pass");
+      if (directPass) {
+        document.getElementById("target-pass").value = directPass;
+        checkPasswordAndStart(directPass);
+      }
+      if (window.location.hash === "#admin") {
+        openAdminModal();
+      }
+    });
+
+    // 7. ADMIN PANEL MANTIQI (Juda oson va qulay)
+    const adminModal = document.getElementById("admin-modal");
+    const adminToggleBtn = document.getElementById("admin-toggle-btn");
+    const btnCloseAdmin = document.getElementById("btn-close-admin");
+    const btnSaveAdmin = document.getElementById("btn-save-admin");
+    const adminAlert = document.getElementById("admin-alert");
+    const secretsContainer = document.getElementById("secrets-items-container");
+
+    function openAdminModal() {
+      adminModal.style.display = "flex";
+      loadSecretsList();
+    }
+
+    function closeAdminModal() {
+      adminModal.style.display = "none";
+    }
+
+    adminToggleBtn.addEventListener("click", openAdminModal);
+    btnCloseAdmin.addEventListener("click", closeAdminModal);
+
+    // Bazadagi barcha mavjud parollarni yuklab ko'rsatish
+    async function loadSecretsList() {
+      try {
+        const snap = await get(ref(db, "secrets"));
+        if (!snap.exists()) {
+          secretsContainer.innerHTML = "<div style='color:#777; font-size:12px;'>Hozircha saqlangan parollar yo'q.</div>";
+          return;
+        }
+
+        const data = snap.val();
+        secretsContainer.innerHTML = "";
+
+        Object.keys(data).forEach(rawKey => {
+          const item = data[rawKey];
+          const row = document.createElement("div");
+          row.className = "secret-row";
+          row.innerHTML = `
+            <div class="secret-row-info">
+              <strong style="color:#ff85a1;">${item.name}</strong>
+              <span style="font-size:11px; color:#aaa;">Parol: <code style="color:#fff;">${decodeURIComponent(rawKey)}</code></span>
+            </div>
+            <div class="secret-actions">
+              <button class="btn-action" data-copy="${decodeURIComponent(rawKey)}">📋 Link</button>
+              <button class="btn-action" style="background:#ff2a6d44;" data-del="${rawKey}">🗑️</button>
+            </div>
+          `;
+
+          // Havolani nusxalash
+          row.querySelector("[data-copy]").addEventListener("click", () => {
+            const currentUrl = window.location.origin + window.location.pathname;
+            const fullLink = `${currentUrl}?p=${encodeURIComponent(decodeURIComponent(rawKey))}`;
+            navigator.clipboard.writeText(fullLink);
+            alert("To'g'ridan-to'g'ri ochiladigan link nusxalandi:\n" + fullLink);
+          });
+
+          // O'chirish
+          row.querySelector("[data-del]").addEventListener("click", async () => {
+            if (confirm(`Rostdan ham "${item.name}" ma'lumotini o'chirmoqchimisiz?`)) {
+              await remove(ref(db, "secrets/" + rawKey));
+              loadSecretsList();
+            }
+          });
+
+          secretsContainer.appendChild(row);
+        });
+      } catch (err) {
+        secretsContainer.innerHTML = "<div style='color:#ff4d6d; font-size:12px;'>Xatolik: " + err.message + "</div>";
       }
     }
 
-    let beatTime = 0;
-    function renderLoop() {
-      ctx.clearRect(0, 0, width, height);
-      const centerX = width / 2;
-      const centerY = height / 2 - 20;
+    // Yangi parol va ism saqlash
+    btnSaveAdmin.addEventListener("click", async () => {
+      const name = document.getElementById("admin-name").value.trim();
+      const pass = document.getElementById("admin-pass").value.trim();
 
-      let pulse = 1;
-      if (isCompleted) {
-        beatTime += 0.05;
-        pulse = 1 + Math.sin(beatTime * 3) * 0.06;
+      adminAlert.style.display = "block";
+
+      if (!name || !pass) {
+        adminAlert.style.color = "#ff4d6d";
+        adminAlert.textContent = "Iltimos, ism va parolni to'liq yozing!";
+        return;
       }
 
-      wordEntities.forEach(w => {
-        w.update();
-        w.draw(ctx, centerX, centerY, pulse);
-      });
+      try {
+        btnSaveAdmin.textContent = "Saqlanmoqda...";
+        btnSaveAdmin.disabled = true;
 
-      // Markazdagi Maxsus Izhor
-      if (isCompleted && currentActiveSurprise) {
-        ctx.save();
-        ctx.translate(centerX, centerY);
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
+        const key = cleanKey(pass);
+        await set(ref(db, "secrets/" + key), {
+          name: name,
+          createdDate: new Date().toISOString()
+        });
 
-        const mainSize = Math.max(20, heartScale * 1.4);
-        ctx.font = `700 ${mainSize}px 'Dancing Script', cursive`;
-        ctx.fillStyle = '#ffffff';
-        ctx.shadowColor = 'rgba(244, 63, 94, 0.95)'; 
-        ctx.shadowBlur = 22;
-        ctx.fillText(currentActiveSurprise.message, 0, -12);
+        adminAlert.style.color = "#4ade80";
+        adminAlert.textContent = `Muvaffaqiyatli saqlandi! Parol: "${pass}"`;
+        document.getElementById("admin-name").value = "";
+        document.getElementById("admin-pass").value = "";
 
-        const subSize = Math.max(13, heartScale * 0.85);
-        ctx.font = `600 ${subSize}px 'Great Vibes', cursive`;
-        ctx.fillStyle = '#fecdd3';
-        ctx.shadowBlur = 15;
-        ctx.fillText(currentActiveSurprise.sender, 0, 22);
-        ctx.restore();
+        loadSecretsList();
+      } catch (e) {
+        adminAlert.style.color = "#ff4d6d";
+        adminAlert.textContent = "Xatolik: " + e.message;
+      } finally {
+        btnSaveAdmin.textContent = "Bazaga Saqlash 💾";
+        btnSaveAdmin.disabled = false;
       }
-
-      requestAnimationFrame(renderLoop);
-    }
-
-    window.onload = () => requestAnimationFrame(renderLoop);
+    });
   </script>
 </body>
 </html>
